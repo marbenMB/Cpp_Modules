@@ -18,6 +18,8 @@ int	main(int ac, char **av)
 	int	idx;
 
 	arg = 1;
+	if (ac == 1)
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	while (arg < ac)
 	{
 		idx = 0;
@@ -29,11 +31,9 @@ int	main(int ac, char **av)
 				std::cout << av[arg][idx];
 			idx++;
 		}
-		if (av[arg + 1])
-			std::cout << " ";
 		arg++;
 	}
-	std::cout << "\n";
+	std::cout << std::endl;
 	
 	return (0);
 }
