@@ -10,3 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PH_BOOK_HPP
+#define	PH_BOOK_HPP
+
+#include "Contact.hpp"
+
+class PhoneBook
+{
+	Contact arr[8];
+};
+
+#endif

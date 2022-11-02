@@ -10,3 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef	CONTACT_HPP
+#define CONTACT_HPP
+
+//	***	INCDLUDES :
+
+#include <iostream>
+#include <iomanip>
+
+//	*** CLASS :
+
+// First name | last name | nickname | phone number | darkest secret. A saved contact can’t have empty fields.
+
+class Contact
+{
+private :
+	std::string	DarkSecret;
+	std::string FirstName;
+	std::string LastName;
+	std::string NickName;
+	std::string PhoneNum;
+};
+
+#endif
