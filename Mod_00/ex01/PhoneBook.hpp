@@ -18,6 +18,7 @@
 class PhoneBook
 {
 	Contact arr[8];
+	int counter = 0;
 };
 
 #endif
