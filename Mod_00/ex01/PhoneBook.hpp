@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 19:47:13 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/03 18:37:52 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/03 21:31:03 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ public :
 	void	Add(void);
 	void	Search(void);
 	void	Exit(void);
-	void	call(void);
 };
 
 #endif

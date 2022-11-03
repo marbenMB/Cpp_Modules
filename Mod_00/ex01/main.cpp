@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:28:55 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/03 20:53:46 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/03 23:01:29 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,17 @@
 // PhoneBook::counter = 0;
 void	error_msg(std::string entry)
 {
-	std::cout << entry << " : *** No Matching Command ***" << std::endl 
-			<< "    -----------------------------" << std::endl
-			<< "    | ADD : Add new contact     |" << std::endl
-			<< "    | SEARCH : Look for contact |" << std::endl
-			<< "    | EXIT : exti the phonebook |" << std::endl
-			<< "    -----------------------------" << std::endl;
+	std::cout << std::endl << entry << " : *** No Matching Command ***" << std::endl;
 }
 
 void	remote_guide(void)
 {
-	std::cout << "      PhoneBook Command Usage : " << std::endl 
+	std::cout << std::endl << "      PhoneBook Command Usage : " << std::endl 
 			<< "    -----------------------------" << std::endl
 			<< "    | ADD : Add new contact     |" << std::endl
 			<< "    | SEARCH : Look for contact |" << std::endl
 			<< "    | EXIT : exti the phonebook |" << std::endl
-			<< "    -----------------------------" << std::endl;
+			<< "    -----------------------------" << std::endl << std::endl;
 }
 
 int main()
@@ -42,6 +37,7 @@ int main()
 	while (1)
 	{
 		remote_guide();
+		std::cout << "+> ";
 		getline(std::cin, entry);
 		if (std::cin.eof())
 			return (1);
