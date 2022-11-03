@@ -10,3 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "PhoneBook.hpp"
+
+void	PhoneBook::Add(void)
+{
+	std::cout << "ADD member Function of the Contact Class" << std::endl;
+};
+
+void	PhoneBook::Search(void)
+{
+	std::cout << "Search member Function of the Contatct Calss" << std::endl;
+};
+
+void	PhoneBook::Exit(void)
+{
+	std::cout << "Exit Member Function of the Contact Class" << std::endl;
+};
+
+void	PhoneBook::call(void)
+{
+	Add();
+	Search();
+	Exit();
+};

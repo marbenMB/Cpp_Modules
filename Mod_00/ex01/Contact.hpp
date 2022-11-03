@@ -30,6 +30,20 @@ private :
 	std::string LastName;
 	std::string NickName;
 	std::string PhoneNum;
+	
+public	:
+	void	setFirstName(std::string name);
+	void	setLastName(std::string lname);
+	void	setNickName(std::string nick);
+	void	setPhone(std::string num);
+	void	setSecret(std::string secret);
+
+	std::string	getFirstName(void);
+	std::string getLastName(void);
+	std::string getNickName(void);
+	std::string getPhone(void);
+	std::string getSecret(void);
+
 };
 
 #endif

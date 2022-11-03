@@ -18,7 +18,13 @@
 class PhoneBook
 {
 	Contact arr[8];
-	int counter = 0;
+	static int counter;
+
+public :
+	void	Add(void);
+	void	Search(void);
+	void	Exit(void);
+	void	call(void);
 };
 
 #endif
