@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:28:55 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/04 15:36:29 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/04 19:56:23 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	remote_guide(void)
 			<< "    -----------------------------" << std::endl
 			<< "    | ADD : Add new contact     |" << std::endl
 			<< "    | SEARCH : Look for contact |" << std::endl
-			<< "    | EXIT : exti the phonebook |" << std::endl
+			<< "    | EXIT : exit the phonebook |" << std::endl
 			<< "    -----------------------------" << std::endl << std::endl;
 }
 

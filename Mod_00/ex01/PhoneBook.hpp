@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 19:47:13 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/04 17:48:56 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/04 20:50:28 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,18 @@
 #include "Contact.hpp"
 
 //	*** DEFINES :
-#define	FST "First Name : "
-#define	LST "Last Name : "
-#define	NIC "Nick Name : "
-#define	PH "Phone Number : "
-#define DS "Darkest Secret : "
+#define	FST "First Name"
+#define	LST "Last Name"
+#define	NIC "Nick Name"
+#define	PH "Phone Number"
+#define DS "Darkest Secret"
 
 // *** CLASSES
 class PhoneBook
 {
 	Contact arr[8];
 	int counter;
+	int	check;
 
 	
 public :
