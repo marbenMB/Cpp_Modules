@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 19:47:10 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/04 23:26:59 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/04 23:40:46 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,6 @@ PhoneBook::PhoneBook()
 	this->counter = 0;
 	this->check = 0;
 };
-
-std::string	storeInfo(std::string msg)
-{
-	std::string	entry;
-
-	while (entry.empty())
-	{
-		std::cout << msg << " : ";
-		getline(std::cin, entry);
-		if (std::cin.eof())
-		{
-			std::cout << std::endl;
-			exit (1);
-		}
-	}
-	return (entry);
-};
-
 
 void	drawLine()
 {

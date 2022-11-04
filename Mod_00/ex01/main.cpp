@@ -6,14 +6,29 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:28:55 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/04 19:56:23 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/04 23:41:45 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
+std::string	storeInfo(std::string msg)
+{
+	std::string	entry;
 
-// PhoneBook::counter = 0;
+	while (entry.empty())
+	{
+		std::cout << msg << " : ";
+		getline(std::cin, entry);
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			exit (1);
+		}
+	}
+	return (entry);
+};
+
 void	error_msg(std::string entry)
 {
 	std::cout << std::endl << entry << " : *** No Matching Command ***" << std::endl;
@@ -37,10 +52,7 @@ int main()
 	while (1)
 	{
 		remote_guide();
-		std::cout << "+> ";
-		getline(std::cin, entry);
-		if (std::cin.eof())
-			return (1);
+		entry = storeInfo("+> ");
 		if (entry == "EXIT")
 		{
 			book.Exit();
