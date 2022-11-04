@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 19:47:13 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/04 20:50:28 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/04 21:34:38 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #define	NIC "Nick Name"
 #define	PH "Phone Number"
 #define DS "Darkest Secret"
+#define	IDX "Which Index"
 
 // *** CLASSES
 class PhoneBook
