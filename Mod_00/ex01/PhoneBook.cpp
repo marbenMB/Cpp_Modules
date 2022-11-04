@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 19:47:10 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/03 23:00:32 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/04 17:35:56 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,66 +14,48 @@
 
 PhoneBook::PhoneBook()
 {
-	counter = 0;
+	this->counter = 0;
+};
+
+std::string	store_info(std::string msg)
+{
+	std::string	entry;
+
+	while (entry.empty())
+	{
+		std::cout << msg;
+		getline(std::cin, entry);
+	}
+	return (entry);
 };
 
 void	PhoneBook::Add(void)
-{
-	std::string	entry;
-	
-	std::cout << std::endl << "- Adding New Contact ... -" << std::endl;
+{	
+	std::cout << std::endl << "- Adding New Contact ... - " << this->counter << std::endl;
 	
 	// Entring Contact Infos :
-	if (entry.empty())
-	{
-		while (entry.empty())
-		{
-			std::cout << "First Name : ";
-			getline(std::cin, entry);
-		}
-		arr[counter % 8].setFirstName(entry);
-		while (1)
-		{
-			std::cout << "Last Name : ";
-			getline(std::cin, entry);
-			if (!entry.empty())
-				break ;
-		}
-		arr[counter % 8].setLastName(entry);
-		while (1)
-		{
-			std::cout << "Phone Number : ";
-			getline(std::cin, entry);
-			if (!entry.empty())
-				break ;
-		}
-		arr[counter % 8].setPhone(entry);
-		while (1)
-		{
-			std::cout << "Darkest Secret : ";
-			getline(std::cin, entry);
-			if (!entry.empty())
-				break ;
-		}
-		arr[counter % 8].setSecret(entry);
-	}
-	counter++;
+	this->arr[this->counter].setFirstName(store_info(FST));
+	this->arr[this->counter].setFirstName(store_info(LST));
+	this->arr[this->counter].setFirstName(store_info(NIC));
+	this->arr[this->counter].setFirstName(store_info(PH));
+	
+
+	this->counter++;
+	this->counter %= 8;
+	
 	
 };
 
 void	PhoneBook::Search(void)
 {
 	std::cout << std::endl << "- Searching ... -" << std::endl;
-	for (int i = 0; i < 8; i++)
-	{
-		std::cout << "First Name : " << arr[counter % 8].getFirstName() << std::endl;
-		std::cout << "Last Name : " << arr[counter % 8].getLastName() << std::endl;
-		std::cout << "Phone Number : " << arr[counter % 8].getPhone() << std::endl;
-		std::cout << "Darkest Secret : " << arr[counter % 8].getFirstName() << std::endl;
-	}
+	std::cout << this->arr[this->counter - 1].getFirstName() << std::endl;
+	std::cout << this->arr[this->counter - 1].getLastName() << std::endl;
+	std::cout << this->arr[this->counter - 1].getNickName() << std::endl;
+	std::cout << this->arr[this->counter - 1].getPhone() << std::endl;
 };
 
 void	PhoneBook::Exit(void)
 {
-	std::cout << "Exit PhoneBook" << std::endl;
+	std::cout << "Exit PhoneBook" << std::endl << std::endl;
 };
