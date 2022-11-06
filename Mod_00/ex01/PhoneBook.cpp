@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 19:47:10 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/04 23:40:46 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/06 17:14:36 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ void	drawHeader()
 {
 	std::cout << std::endl << "             + Searching .... +" << std::endl;
 	drawLine();
-	std::cout << "     Index" << "|" 
-			<< FST << "|" 
-			<< " " << LST << "|" 
-			<< " " << NIC  << "|" << std::endl;
+	std::cout <<  std::setw(10) << std::right << "Index" << "|" 
+			<< std::setw(10) << std::right << FST << "|" 
+			<< std::setw(10) << std::right << LST << "|" 
+			<< std::setw(10) << std::right << NIC  << "|" << std::endl;
 	drawLine();
 }
 
@@ -46,18 +46,6 @@ std::string	displayFormed(std::string str)
 		str.resize(10);
 		str[9] = '.';
 	}
-	return (str);
-}
-
-std::string	formating(size_t len)
-{
-	std::string	str;
-	
-	while (len < 10)
-	{
-		str.append(" ");
-		len++;
-	};
 	return (str);
 }
 
@@ -121,13 +109,13 @@ void	PhoneBook::Search(void)
 	{	
 		std::cout << "     " << idx << "    " << "|";
 		str = displayFormed(this->arr[idx].getFirstName());
-		std::cout << formating(str.length())
+		std::cout << std::setw(10) << std::right
 				<< str << "|";
 		str = displayFormed(this->arr[idx].getLastName());
-		std::cout << formating(str.length())
+		std::cout <<  std::setw(10) << std::right
 				<< str << "|";
 		str = displayFormed(this->arr[idx].getNickName());
-		std::cout << formating(str.length())
+		std::cout <<  std::setw(10) << std::right
 				<< str << "|";
 		std::cout << std::endl;
 		drawLine();

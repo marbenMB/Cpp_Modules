@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 19:47:13 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/04 23:41:12 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/06 17:01:52 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ class PhoneBook
 	int counter;
 	int	check;
 
-	
 public :
 	PhoneBook();
 	void	Add(void);
