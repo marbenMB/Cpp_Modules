@@ -6,16 +6,15 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 19:47:10 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/06 17:14:36 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/06 18:48:42 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook()
+PhoneBook::PhoneBook() : counter(0), check(0)
 {
-	this->counter = 0;
-	this->check = 0;
+	std::cout << "+>      PhoneBook Created      <+" << std::endl;
 };
 
 void	drawLine()
