@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 19:52:01 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/10/31 19:52:02 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/07 03:59:10 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,27 @@ void	Contact::setSecret(std::string secret)
 	this->DarkSecret = secret;
 };
 
-std::string Contact::getFirstName(void)
+std::string Contact::getFirstName(void) const
 {
 	return (this->FirstName);
 };
 
-std::string Contact::getLastName(void)
+std::string Contact::getLastName(void) const
 {
 	return (this->LastName);
 };
 
-std::string Contact::getNickName(void)
+std::string Contact::getNickName(void) const
 {
 	return (this->NickName);
 };
 
-std::string Contact::getPhone(void)
+std::string Contact::getPhone(void) const
 {
 	return (this->PhoneNum);
 };
 
-std::string	Contact::getSecret(void)
+std::string	Contact::getSecret(void) const
 {
 	return (this->DarkSecret);
 };
