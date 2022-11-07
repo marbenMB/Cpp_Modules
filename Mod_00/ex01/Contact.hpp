@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 19:51:58 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/06 17:56:20 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/07 02:49:37 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ public	:
 	void	setPhone(std::string num);
 	void	setSecret(std::string secret);
 
-	std::string	getFirstName(void);
-	std::string getLastName(void);
-	std::string getNickName(void);
-	std::string getPhone(void);
-	std::string getSecret(void);
+	std::string	getFirstName(void) const;
+	std::string getLastName(void) const;
+	std::string getNickName(void) const;
+	std::string getPhone(void) const;
+	std::string getSecret(void) const;
 
 };
 
