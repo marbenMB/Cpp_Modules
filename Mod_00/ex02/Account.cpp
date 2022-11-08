@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:59:23 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/08 09:51:32 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/08 10:54:46 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,19 +129,12 @@ bool Account::makeWithdrawal(int withdrawal)
 
 void	Account::_displayTimestamp(void)
 {
-    struct tm  tstruct;
-	time_t     now;
-	now = time(0);
-
+    struct tm	tstruct;
+	time_t		now = time(NULL);
+	char		buff[30];
 	
     tstruct = *localtime(&now);
-	
-	std::cout << "[" << std::setw(4) << tstruct.tm_year + 1900
-			<< std::setw(2) << std::setfill('0') << tstruct.tm_mon + 1
-			<< std::setw(2) << std::setfill('0') << tstruct.tm_mday << "_" 
-			<< std::setw(2) << std::setfill('0') << tstruct.tm_hour
-			<< std::setw(2) << std::setfill('0') << tstruct.tm_min
-			<< std::setw(2) << std::setfill('0') << tstruct.tm_sec
-			<< "] ";
+	strftime(buff, sizeof(buff), "%Y%m%d_%H%M%S", &tstruct);
+	std::cout << "[" << buff << "] ";
 }
 
