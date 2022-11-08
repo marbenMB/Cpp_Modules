@@ -6,11 +6,12 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:59:23 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/08 06:59:44 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/08 09:11:02 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <iomanip>
 #include "Account.hpp"
 
 int	Account::_nbAccounts = 0;
@@ -128,11 +129,19 @@ bool Account::makeWithdrawal(int withdrawal)
 
 void	Account::_displayTimestamp(void)
 {
-	time_t     now = time(0);
     struct tm  tstruct;
-    char       buf[80];
+	time_t     now;
+	now = time(0);
+
+	
     tstruct = *localtime(&now);
-    strftime(buf, sizeof(buf), "%Y%m%d_%X", &tstruct);
-	std::cout << "[" << buf << "] ";
+	
+	std::cout << "[" << std::setw(4) << tstruct.tm_year + 1900
+			<< std::setw(2) << std::setfill('0') << tstruct.tm_mon 
+			<< std::setw(2) << std::setfill('0') << tstruct.tm_mday << "_" 
+			<< std::setw(2) << std::setfill('0') << tstruct.tm_hour
+			<< std::setw(2) << std::setfill('0') << tstruct.tm_min
+			<< std::setw(2) << std::setfill('0') << tstruct.tm_sec
+			<< "] ";
 }
 
