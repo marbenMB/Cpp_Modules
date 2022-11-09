@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:59:23 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/08 10:54:46 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/09 19:55:28 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	Account::getNbWithdrawals(void)
 }
 
 // ************************************************************************** //
-//                             MEMBER FUNCTIONS                               //
+//                             DISPLAY FUNCTIONS                              //
 // ************************************************************************** //
 
 void	Account::displayAccountsInfos(void)
@@ -86,6 +86,21 @@ void	Account::displayStatus(void) const
 			<< "deposits:" << this->_nbDeposits << ";"
 			<< "withdrawals:" << this->_nbWithdrawals << std::endl;
 }
+
+void	Account::_displayTimestamp(void)
+{
+	struct tm	tstruct;
+	time_t		now = time(NULL);
+	char		buff[30];
+	
+    tstruct = *localtime(&now);
+	strftime(buff, sizeof(buff), "%Y%m%d_%H%M%S", &tstruct);
+	std::cout << "[" << buff << "] ";
+}
+
+// ************************************************************************** //
+//                              MAKE FUNCTIONS                                //
+// ************************************************************************** //
 
 void	Account::makeDeposit(int deposit)
 {
@@ -126,15 +141,3 @@ bool Account::makeWithdrawal(int withdrawal)
 		std::cout << "refused" << std::endl;
 	return (check);
 }
-
-void	Account::_displayTimestamp(void)
-{
-    struct tm	tstruct;
-	time_t		now = time(NULL);
-	char		buff[30];
-	
-    tstruct = *localtime(&now);
-	strftime(buff, sizeof(buff), "%Y%m%d_%H%M%S", &tstruct);
-	std::cout << "[" << buff << "] ";
-}
-
