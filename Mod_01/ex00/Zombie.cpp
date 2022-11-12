@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 18:56:34 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/11 20:10:13 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/12 17:33:11 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Zombie::Zombie(std::string naming) : _name(naming)
 {
-	std::cout << this->_name <<": Created" << std::endl;
+	std::cout << this->_name <<": Is Born" << std::endl;
 }
 
 Zombie::~Zombie()
