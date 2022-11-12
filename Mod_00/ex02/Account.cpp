@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:59:23 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/09 19:55:28 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/11 18:58:07 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
 // ************************************************************************** //
-//                        Constructor and Destructor                           //
+//                        Constructor and Destructor                          //
 // ************************************************************************** //
 
 Account::Account(int initial_deposit) : _accountIndex(Account::_nbAccounts), _amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0)
