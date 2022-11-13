@@ -40,10 +40,17 @@ int main()
 {
 	int	a = -1;
 	int	&ref = a;
+	int	*ptr = &a;
 
+	std::cout << "prt addr : " << &ptr << std::endl;
+	std::cout << "var addr : " << &a << std::endl;
+	std::cout << "ref addr : " << &ref << std::endl << std::endl;
+
+	std::cout << "prt : " << *ptr << std::endl;
 	std::cout << "var : " << a << std::endl;
 	std::cout << "ref : " << ref << std::endl;
 	ref = 4;
+	std::cout << "prt : " << *ptr << std::endl;
 	std::cout << "var : " << a << std::endl;
 	std::cout << "ref : " << ref << std::endl;
 }
