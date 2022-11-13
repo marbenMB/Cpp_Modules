@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbenbajj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:21:15 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/11 20:28:45 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/13 01:12:48 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-
-class Car
-{
-	private :
-		std::string	_brand;
-		int			_model;
-		int			_speed;
-	public :
-		Car();
-		Car(std::string br, int mod);
-		void	carBrand(void);
-};
+#include "header.hpp"
 
 Car::Car()
 {
@@ -37,6 +25,11 @@ Car::Car(std::string br, int mod)
 	std::cout << "Parameterized Constructor Called" << std::endl;
 }
 
+void	Car::setCarSpeed(int s)
+{
+	this->_speed = s;
+}
+
 void	Car::carBrand(void)
 {
 	std::cout << "Car Brand : " << this->_brand << std::endl;
@@ -45,8 +38,12 @@ void	Car::carBrand(void)
 
 int main()
 {
-	Car	leon;
-	leon.carBrand();
-	Car	bmw("bmw", 2021);
-	bmw.carBrand();
+	int	a = -1;
+	int	&ref = a;
+
+	std::cout << "var : " << a << std::endl;
+	std::cout << "ref : " << ref << std::endl;
+	ref = 4;
+	std::cout << "var : " << a << std::endl;
+	std::cout << "ref : " << ref << std::endl;
 }
