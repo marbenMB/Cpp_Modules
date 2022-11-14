@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:21:15 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/13 01:12:48 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/14 05:05:29 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,7 @@ void	Car::carBrand(void)
 
 int main()
 {
-	int	a = -1;
-	int	&ref = a;
-	int	*ptr = &a;
+	Pikala one;
 
-	std::cout << "prt addr : " << &ptr << std::endl;
-	std::cout << "var addr : " << &a << std::endl;
-	std::cout << "ref addr : " << &ref << std::endl << std::endl;
-
-	std::cout << "prt : " << *ptr << std::endl;
-	std::cout << "var : " << a << std::endl;
-	std::cout << "ref : " << ref << std::endl;
-	ref = 4;
-	std::cout << "prt : " << *ptr << std::endl;
-	std::cout << "var : " << a << std::endl;
-	std::cout << "ref : " << ref << std::endl;
+	
 }
