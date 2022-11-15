@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:21:15 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/14 05:05:29 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/15 18:00:34 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,19 @@ void	Car::carBrand(void)
 
 int main()
 {
-	Pikala one;
+	std::string	str = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+	std::string	s1 = "Ipsum";
+	size_t			i;
+	size_t			start;
 
-	
+	i = 0;
+	start = 0;
+	while (i < str.length())
+	{
+		i = str.find(s1, start);
+		start = i + s1.length();
+		std::cout << i << "\t - \t";
+	}
+	std::cout << str[0];
 }
+
