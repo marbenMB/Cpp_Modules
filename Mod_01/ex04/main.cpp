@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 16:01:06 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/15 18:23:33 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/15 20:17:42 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ bool	initStreams(Sed *sd, char **av)
 		sd->inFile.open(sd->getIFileName(), std::ios::in);
 		if (sd->outFile.is_open() && sd->inFile.is_open())
 			return (1);
+		std::cerr << "File Error" << std::endl;
 	}
+	else
+		std::cerr << "No Word Is Mentionned" << std::endl;
 	return (0);
 }
 
@@ -46,7 +49,7 @@ void	sedReplace(Sed &sd)
 			start = idx + sd.getS2().length();
 		}
 	}
-	std::cout << all;
+	sd.outFile << all;
 }
 
 int main(int ac, char **arg)
@@ -58,9 +61,6 @@ int main(int ac, char **arg)
 		return (1);
 	}
 	if (initStreams(&sd, arg))
-	{
-		std::cout << "Files opened" << std::endl;
 		sedReplace(sd);
-	}
 	return (0);
 }
