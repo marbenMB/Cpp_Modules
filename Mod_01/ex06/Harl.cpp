@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 02:51:44 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/16 03:28:58 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/16 04:44:06 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,35 +34,39 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-	ptrFt	fun[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	ptrFt	ft;
+	
+		void	(Harl::*ft)(void);
 	std::string	str[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	int		idx;
 
 	for (idx = 0; idx < 4; idx++)
 	{
 		if (!level.compare(str[idx]))
+		{
+			std::cout << "[ " << str[idx] << " ]"<< std::endl;
 			break ;
+		}
 	}
+	
 	switch (idx)
 	{
-		case 4:
-			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-			ft = NULL;
+		case 0:
+			ft = &Harl::debug;
+			(this->*ft)();
+		case 1:
+			ft = &Harl::info;
+			(this->*ft)();
+		case 2:
+			ft = &Harl::warning;
+			(this->*ft)();
+		case 3:
+			ft = &Harl::error;
+			(this->*ft)();
 			break;
 	
 		default:
-			ft = fun[idx];
+			std::cerr << "[ Probably complaining about insignificant problems ]" << std::endl;
+			ft = NULL;
 			break;
-	}
-	if (ft)
-	{
-		std::cout << "[ " << str[idx] << " ]" << std::endl;
-		while (idx < 4)
-		{
-			(this->*ft)();
-			idx++;
-			ft = fun[idx];
-		}
 	}
 }
