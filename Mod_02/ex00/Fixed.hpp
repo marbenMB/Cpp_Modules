@@ -6,7 +6,38 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 05:03:21 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/16 05:03:22 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/17 21:29:30 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef	_FIXED_HPP_
+#define _FIXED_HPP_
+
+// ******************************************************** //
+//                         INCLUDES                        //
+// ****************************************************** //
+#include <iostream>
+
+// ******************************************************** //
+//                         CLASSES                         //
+// ****************************************************** //
+
+class	Fixed
+{
+	public	:
+		Fixed ();
+		Fixed (Fixed const &obj);
+		~Fixed ();
+		Fixed &operator= (const Fixed &obj);
+		int		getRawBits( void ) const;
+		void	setRawBits( int const raw );
+	private	:
+		int					_value;
+		static const int	_rawBits;
+};
+
+// ******************************************************** //
+//                        FUNCTIONS                        //
+// ****************************************************** //
+
+#endif
