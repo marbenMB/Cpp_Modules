@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 05:03:21 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/17 21:29:30 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/19 20:17:48 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ class	Fixed
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
 	private	:
-		int					_value;
-		static const int	_rawBits;
+		int					_rawBits;
+		static const int	_shift;
 };
 
 // ******************************************************** //
