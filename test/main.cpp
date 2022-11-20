@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:21:15 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/16 02:23:58 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/20 00:13:58 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int main()
 	// 	std::cout << i << "\t - \t";
 	// }
 	// std::cout << str[0];
-
-	std::cout << "I cannot believe adding extra bacon costs more money. You didn’t pu enough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
+	
 }
 

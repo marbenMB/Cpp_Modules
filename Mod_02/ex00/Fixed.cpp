@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 05:03:18 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/19 20:18:26 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/20 00:23:09 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 const int	Fixed::_shift = 8;
 
-Fixed::Fixed()
+Fixed::Fixed() : _rawBits(0)
 {
 	std::cout << "Default Constructor Called" << std::endl;
-	this->_rawBits = 0;
 }
 
 Fixed::~Fixed()

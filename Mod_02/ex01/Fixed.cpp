@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 05:03:18 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/19 21:03:30 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/20 05:54:16 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 const int	Fixed::_shift = 8;
 
-Fixed::Fixed()
+Fixed::Fixed() : _rawBits(0)
 {
 	std::cout << "Default Constructor Called" << std::endl;
-	this->_rawBits = 0;
 }
 
 Fixed::~Fixed()
@@ -34,6 +33,7 @@ Fixed::Fixed(Fixed const &obj)
 
 Fixed::Fixed(int const ival)
 {
+	std::cout << "Int Constructor Called" << std::endl;
 	this->_rawBits = ival << _shift;
 }
 
@@ -41,7 +41,7 @@ Fixed::Fixed(float const fval)
 {
 	float	tmp;
 
-	
+	std::cout << "Float Constructor Called" << std::endl;
 	tmp = fval * (1 << _shift);
 	this->_rawBits = roundf(tmp);
 }
@@ -84,6 +84,6 @@ int		Fixed::toInt(void) const
 
 std::ostream	&operator<< (std::ostream &out, Fixed const &obj)
 {
-	out << obj.toFloat() << std::endl;
+	out << obj.toFloat();
 	return (out);
 }
