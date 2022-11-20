@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 05:03:18 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/20 05:54:34 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/20 06:38:05 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,26 @@ bool	Fixed::operator== (Fixed const &obj)
 bool	Fixed::operator!= (Fixed const &obj)
 {
 	return (!(*this == obj));
+}
+
+Fixed	Fixed::operator+ (Fixed const &obj)
+{
+	return (Fixed((this->_rawBits + obj._rawBits) / (float)(1 << _shift)));
+}
+
+Fixed	Fixed::operator- (Fixed const &obj)
+{
+	return (Fixed((this->_rawBits - obj._rawBits) / (float)(1 << _shift)));
+}
+
+Fixed	Fixed::operator* (Fixed const &obj)
+{
+	return (Fixed((this->_rawBits / (float)(1 << _shift)) * (obj._rawBits/ (float)(1 << _shift))));
+}
+
+Fixed	Fixed::operator/ (Fixed const &obj)
+{
+	return (Fixed((this->_rawBits / (float)(1 << _shift)) / (obj._rawBits/ (float)(1 << _shift))));
 }
 
 int	Fixed::getRawBits(void) const

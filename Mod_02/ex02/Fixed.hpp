@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 05:03:21 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/20 05:50:45 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/20 06:15:39 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ class	Fixed
 		bool	operator== (Fixed const &obj);
 		bool	operator!= (Fixed const &obj);
 	//	Arithmetic Operators :
-		// Fixed	&operator+ (Fixed const &obj);
-		// Fixed	&operator- (Fixed const &obj);
-		// Fixed	&operator* (Fixed const &obj);
-		// Fixed	&operator/ (Fixed const &obj);
+		Fixed	operator+ (Fixed const &obj);
+		Fixed	operator- (Fixed const &obj);
+		Fixed	operator* (Fixed const &obj);
+		Fixed	operator/ (Fixed const &obj);
 	//	Inc , Dec (Pre , Pos) :
 		// void	operator++ (void);
 		// void	operator++ (int);

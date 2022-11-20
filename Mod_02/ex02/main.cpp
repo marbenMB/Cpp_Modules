@@ -6,16 +6,20 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 05:03:24 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/20 05:59:48 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/20 06:38:45 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 int main( void ) {
-	Fixed	a(4.40108f);
-	Fixed	b(4.400012f);
+	Fixed	a(10);
+	Fixed	b(4);
+	Fixed	c;
 
-	std::cout <<  << std::endl;
+	c = a / b;
+	std::cout << c << std::endl;
+	// std::cout << a.getRawBits() << "\t" << b.getRawBits() << std::endl;
+	// std::cout << (b - a) << std::endl;
 	return (0);
 }
