@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 05:03:18 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/20 07:09:06 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/20 07:32:18 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,36 @@ Fixed	Fixed::operator-- (void)
 {
 	this->_rawBits--;
 	return (*this);
+}
+
+//	*** MIN - MAX : 
+
+Fixed	&Fixed::min(Fixed &o1, Fixed &o2)
+{
+	if (o1 < o2)
+		return (o1);
+	return (o2);
+}
+
+Fixed	const &Fixed::min(Fixed const &o1, Fixed const &o2)
+{
+	if (o1._rawBits < o2._rawBits)
+		return (o1);
+	return (o2);
+}
+
+Fixed	&Fixed::max(Fixed &o1, Fixed &o2)
+{
+	if (o1 > o2)
+		return (o1);
+	return (o2);
+}
+
+Fixed	const &Fixed::max(Fixed const &o1, Fixed const &o2)
+{
+	if (o1._rawBits > o2._rawBits)
+		return (o1);
+	return (o2);
 }
 
 // ******************************************************** //
