@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 05:03:21 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/20 06:15:39 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/20 07:02:47 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ class	Fixed
 		Fixed	operator* (Fixed const &obj);
 		Fixed	operator/ (Fixed const &obj);
 	//	Inc , Dec (Pre , Pos) :
-		// void	operator++ (void);
-		// void	operator++ (int);
-		// void	operator-- (void);
-		// void	operator-- (int);
+		Fixed	operator++ (void);
+		Fixed	operator++ (int);
+		Fixed	operator-- (void);
+		Fixed	operator-- (int);
 	//	Min & Max :
 		// static Fixed &min(Fixed &o1, Fixed &o2);
 		// static Fixed &min(Fixed const &o1, Fixed const &o2);

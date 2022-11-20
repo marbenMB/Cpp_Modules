@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 05:03:18 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/20 06:38:05 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/20 07:09:06 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@ Fixed::Fixed(float const fval)
 	this->_rawBits = roundf(tmp);
 }
 
+// ******************************************************** //
+//                  OPERATORS OVERLODING                   //
+// ****************************************************** //
+
 Fixed	&Fixed::operator= (const Fixed &obj)
 {
 	std::cout << "Copy Assignment Operator Called" << std::endl;
@@ -53,6 +57,8 @@ Fixed	&Fixed::operator= (const Fixed &obj)
 		this->_rawBits = obj._rawBits;
 	return (*this);
 }
+
+//	*** COMPARAISON :
 
 bool	Fixed::operator< (Fixed const &obj)
 {
@@ -84,6 +90,8 @@ bool	Fixed::operator!= (Fixed const &obj)
 	return (!(*this == obj));
 }
 
+//	***	ARITHMETICS :
+
 Fixed	Fixed::operator+ (Fixed const &obj)
 {
 	return (Fixed((this->_rawBits + obj._rawBits) / (float)(1 << _shift)));
@@ -103,6 +111,40 @@ Fixed	Fixed::operator/ (Fixed const &obj)
 {
 	return (Fixed((this->_rawBits / (float)(1 << _shift)) / (obj._rawBits/ (float)(1 << _shift))));
 }
+
+//	***	INC - DEC :
+
+Fixed	Fixed::operator++ (int)
+{
+	Fixed	tmp(*this);
+
+	this->_rawBits++;
+	return (tmp);
+}
+
+Fixed	Fixed::operator++ (void)
+{
+	this->_rawBits++;
+	return (*this);
+}
+
+Fixed	Fixed::operator-- (int)
+{
+	Fixed	tmp(*this);
+
+	this->_rawBits--;
+	return (tmp);
+}
+
+Fixed	Fixed::operator-- (void)
+{
+	this->_rawBits--;
+	return (*this);
+}
+
+// ******************************************************** //
+//				Getters - Setters - ft_to	 			   //
+// ****************************************************** //
 
 int	Fixed::getRawBits(void) const
 {
