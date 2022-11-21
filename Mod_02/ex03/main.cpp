@@ -5,8 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 05:05:59 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/16 05:06:00 by mbenbajj         ###   ########.fr       */
+/*   Created: 2022/11/16 05:03:24 by mbenbajj          #+#    #+#             */
+/*   Updated: 2022/11/21 03:19:26 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Point.hpp"
+
+int main( void ) {
+	Point	a(5, 10);
+	Point	b(5, 4);
+	Point	c(11, 5);
+	Point	p(8, 5.75);
+
+	std::cout << bsp(a, b, c, p) << std::endl;
+	return (0);
+}

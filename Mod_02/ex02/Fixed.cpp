@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 05:03:18 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/20 07:32:18 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/21 01:48:11 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ Fixed	Fixed::operator- (Fixed const &obj)
 
 Fixed	Fixed::operator* (Fixed const &obj)
 {
-	return (Fixed((this->_rawBits / (float)(1 << _shift)) * (obj._rawBits/ (float)(1 << _shift))));
+	return (Fixed((this->_rawBits / (float)(1 << _shift)) * (obj._rawBits / (float)(1 << _shift))));
 }
 
 Fixed	Fixed::operator/ (Fixed const &obj)
