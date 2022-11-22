@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 05:15:32 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/22 17:40:14 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:47:49 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class	ClapTrap
 		std::string	getName (void) const;
 		int			getDamage (void) const;
 
-	private	:
+	protected	:
 		std::string	_name;
 		int			_hitPt;
 		int			_energy;
