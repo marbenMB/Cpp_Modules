@@ -6,25 +6,25 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 05:15:24 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/22 18:58:43 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:57:54 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _hitPt(10), _energy(10), _damage(0)
+ClapTrap::ClapTrap() : _hitPt(100), _energy(50), _damage(20)
 {
-	std::cout << "Default Constructor Called" << std::endl;
+	std::cout << "ClapTrap Default Constructor Called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPt(10), _energy(10), _damage(0)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPt(100), _energy(50), _damage(20)
 {
-	std::cout << "Constructor Called" << std::endl;
+	std::cout << "ClapTrap Constructor Called" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor Called" << std::endl;
+	std::cout << "ClapTrap Destructor Called" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &obj)
@@ -65,10 +65,10 @@ void	ClapTrap::takeDamage (unsigned int amount)
 {
 	if (this->_energy && this->_hitPt)
 	{
-		std::cout << this->_name << " lose " << amount - 1 << " hit points!" << std::endl;
+		std::cout << this->_name << " lose " << amount << " hit points!" << std::endl;
 		if (this->_damage < 0)
 			this->_damage--;
-		this->_hitPt -= amount - 1;
+		this->_hitPt -= amount;
 		if (this->_hitPt < 0)
 			this->_hitPt = 0;
 	}
@@ -85,7 +85,7 @@ void	ClapTrap::beRepaired (unsigned int amount)
 		this->_energy--;
 	}
 	else
-		std::cout << this->_name << " Can't do anything!" << std::endl;
+		std::cout << "ClapTrap " << this->_name << " Can't do anything!" << std::endl;
 }
 
 void	ClapTrap::clapTrapStat (void) const
