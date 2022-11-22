@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 05:15:32 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/21 05:21:26 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/22 14:57:09 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,12 @@ class	ClapTrap
 		~ClapTrap ();
 		ClapTrap &operator= (const ClapTrap &obj);
 
-		void	attack (const std::string &target);
-		void	takeDamage (unsigned int amount);
-		void	beRepaired (unsigned int amount);
+		void		attack (const std::string &target);
+		void		takeDamage (unsigned int amount);
+		void		beRepaired (unsigned int amount);
+		void		clapTrapStat (void) const;
+		std::string	getName (void) const;
+		int			getDamage (void) const;
 
 	private	:
 		std::string	_name;
