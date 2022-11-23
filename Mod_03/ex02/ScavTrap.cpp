@@ -22,9 +22,13 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap Destructor Called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name) 
+ScavTrap::ScavTrap(std::string name)
 {
 	std::cout << "ScavTrap Constructor Called" << std::endl;
+	this->_hitPt = 100;
+	this->_damage = 20;
+	this->_energy = 50;
+	this->_name = name;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &obj)
@@ -47,7 +51,7 @@ void	ScavTrap::attack (std::string const &target)
 	{
 		std::cout << "ScavTrap " << this->_name << " attacks " << target << \
 				" , causing " << this->_damage << " points of damage!" << std::endl;
-		if (this->_damage < 10)
+		if (this->_damage < 20)
 			this->_damage++;
 		this->_energy--;
 	}
