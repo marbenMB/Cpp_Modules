@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 21:27:11 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/22 21:27:12 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/23 01:34:35 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap Destructor Called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name) 
+ScavTrap::ScavTrap(std::string name)
 {
 	std::cout << "ScavTrap Constructor Called" << std::endl;
+	this->_name = name;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &obj)
