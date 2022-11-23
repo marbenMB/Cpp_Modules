@@ -12,12 +12,12 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _hitPt(100), _energy(50), _damage(20)
+ClapTrap::ClapTrap()
 {
 	std::cout << "ClapTrap Default Constructor Called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPt(100), _energy(50), _damage(20)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPt(10), _energy(10), _damage(0)
 {
 	std::cout << "ClapTrap Constructor Called" << std::endl;
 }
@@ -68,7 +68,7 @@ void	ClapTrap::takeDamage (unsigned int amount)
 		std::cout << this->_name << " lose " << amount << " hit points!" << std::endl;
 		if (this->_damage < 0)
 			this->_damage--;
-		this->_hitPt -= amount;
+		this->_hitPt -= (amount % 10);
 		if (this->_hitPt < 0)
 			this->_hitPt = 0;
 	}
