@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 21:27:11 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/23 01:04:35 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/24 03:01:21 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,13 @@ ScavTrap::ScavTrap(ScavTrap const &obj)
 ScavTrap	&ScavTrap::operator= (const ScavTrap &obj)
 {
 	std::cout << "Copy Assignment Operator Called" << std::endl;
-	(void)obj;
+	if (this != &obj)
+	{
+		this->_name = obj._name;
+		this->_hitPt = obj._hitPt;
+		this->_energy = obj._energy;
+		this->_damage = obj._damage;
+	}
 	return (*this);
 }
 
