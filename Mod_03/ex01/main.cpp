@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 21:26:52 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/24 17:50:26 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/24 17:53:34 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main()
 {
 	ClapTrap	goko("Goko");
 	ScavTrap	vijita("Vijita");
-	ScavTrap	fraizer("Fraizer");
+	// ScavTrap	fraizer("Fraizer");
 
 	goko.clapTrapStat();
 	vijita.clapTrapStat();
