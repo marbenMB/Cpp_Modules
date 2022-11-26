@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:34:18 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/26 17:21:57 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:26:03 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,11 @@ int main()
 	const WrongAnimal *wrongMeta = new WrongCat();
 
 	wrongMeta->makeSound();
+
+	
+	delete meta;
+	delete i;
+	delete j;
+	delete wrongMeta;
 	return (0);
 }
