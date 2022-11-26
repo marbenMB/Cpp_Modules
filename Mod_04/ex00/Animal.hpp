@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:34:12 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/26 17:19:12 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:23:07 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	Animal
 	public	:
 		Animal ();
 		Animal (Animal const &obj);
-		~Animal ();
+		virtual ~Animal ();
 		Animal &operator= (const Animal &obj);
 		
 		virtual void	makeSound (void) const;
