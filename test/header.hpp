@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 01:05:12 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/14 05:59:50 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/26 12:58:40 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,48 +22,24 @@
 //                         CLASSES                         //
 // ****************************************************** //
 
-class Motor
+class	Vihecule
 {
-	private :
-		int	i;
-	
-	public:
-		Motor(){
-			i = 1;
-			std::cout << "Motor Constructor Called"  << i << std::endl;
-			};
-		~Motor(){
-			std::cout << "Motor Destructor Called" << std::endl;
-		};
+	public : 
+		Vihecule (int n) : _nbWheel(n) {}
+		virtual void	printChara(void){
+			std::cout << "Vehicule Wheels : " << _nbWheel << std::endl;
+		}
+		int		_nbWheel;
 };
 
-class Pikala
+class	Car : public Vihecule
 {
-	private :
-		Motor x;
-
-	public:
-		Pikala(){
-			std::cout << "Pikala Constructor Called" << std::endl;
-			};
-		~Pikala(){
-			std::cout << "Pikala Destructor Called" << std::endl;
-		};
+	public	:
+		Car (int n) : Vihecule(n) {}
+		virtual void	printChara(void){
+			std::cout << "Car Wheels : " << _nbWheel << std::endl;
+		}
 };
-
-class Car
-{
-	private :
-		std::string	_brand;
-		int			_model;
-		int			_speed;
-	public :
-		Car();
-		Car(std::string br, int mod);
-		void	carBrand(void);
-		void	setCarSpeed(int s);
-};
-
 // ******************************************************** //
 //                        FUNCTIONS                        //
 // ****************************************************** //
