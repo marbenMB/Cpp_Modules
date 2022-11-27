@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:34:12 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/26 18:23:07 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:01:29 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,6 @@ class	Animal
 	protected :
 		std::string	type;
 	
-};
-
-class	WrongAnimal
-{
-	public :
-		WrongAnimal ();
-		WrongAnimal (WrongAnimal const &obj);
-		~WrongAnimal ();
-		WrongAnimal	&operator= (const WrongAnimal &obj);
-		
-		void	makeSound (void) const;
-	protected : 
-		std::string	type;
 };
 // ******************************************************** //
 	//                        FUNCTIONS                        //

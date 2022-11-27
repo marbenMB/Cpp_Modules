@@ -21,19 +21,6 @@ class	Cat : public Animal
 	private	:
 		Brain	*_brain;
 };
-
-class	WrongCat : public WrongAnimal
-{
-	public	:
-		WrongCat ();
-		WrongCat (WrongCat const &obj);
-		~WrongCat ();
-		WrongCat &operator= (const WrongCat &obj);
-
-		void makeSound (void) const;
-	private	:
-		//	private attributes.
-};
 // ******************************************************** //
 	//                        FUNCTIONS                        //
 	// ****************************************************** //
