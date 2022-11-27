@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:34:16 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/27 19:04:02 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:08:39 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,6 @@ Animal	&Animal::operator= (const Animal &obj)
 	if (this != &obj)
 		this->type = obj.type;
 	return (*this);
-}
-
-void	Animal::makeSound (void) const
-{
-	std::cout << "Animal Sound ..." << std::endl;
 }
 
 std::string	Animal::getType (void) const
