@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:34:18 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/27 19:14:22 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:26:04 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 int _main()
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
 	Dog *a = new Dog();
 
 	{

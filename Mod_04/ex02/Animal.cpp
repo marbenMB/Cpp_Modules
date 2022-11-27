@@ -6,30 +6,30 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 15:34:16 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/27 19:08:39 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:25:42 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal() : type("Animal")
+AAnimal::AAnimal() : type("AAnimal")
 {
 	std::cout << "Animal : Default Constructor Called" << std::endl;
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
 	std::cout << "Animal : Destructor Called" << std::endl;
 }
 
-Animal::Animal(Animal const &obj)
+AAnimal::AAnimal(AAnimal const &obj)
 {
 	std::cout << "Copy Constructor Called" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }
 
-Animal	&Animal::operator= (const Animal &obj)
+AAnimal	&AAnimal::operator= (const AAnimal &obj)
 {
 	std::cout << "Copy Assignment Operator Called" << std::endl;
 	if (this != &obj)
@@ -37,7 +37,7 @@ Animal	&Animal::operator= (const Animal &obj)
 	return (*this);
 }
 
-std::string	Animal::getType (void) const
+std::string	AAnimal::getType (void) const
 {
 	return (this->type);
 }
