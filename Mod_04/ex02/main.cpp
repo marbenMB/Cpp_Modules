@@ -16,6 +16,8 @@
 
 int _main()
 {
+	//	Error will be displayed : 
+	//	AAnimal	instance;
 	const AAnimal* j = new Dog();
 	const AAnimal* i = new Cat();
 	Dog *a = new Dog();
