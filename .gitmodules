@@ -1,0 +1,3 @@
+[submodule "MakeGit_Script"]
+	path = MakeGit_Script
+	url = ./MakeGit_Script
