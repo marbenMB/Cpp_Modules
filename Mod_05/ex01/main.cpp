@@ -1,15 +1,16 @@
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
 	
 	try
 	{
-		Bureaucrat	goko("", 5);
+		Bureaucrat	goko("goko", 5);
 		Bureaucrat	vegita("Vegita", 150);
+		Form		sokna("Sokna");
 
-		goko.incGrade();
-		vegita.decGrade();
+
+		sokna.beSigned(goko);
 	}
 	catch (const char *msg)
 	{

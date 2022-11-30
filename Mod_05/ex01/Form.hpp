@@ -18,9 +18,11 @@ class	Form
 		Form &operator= (const Form &obj);
 
 		bool		getSign (void) const;
-		int	const	getReq (void) const;
-		int	const	getExec (void) const;
+		int			getReq (void) const;
+		int			getExec (void) const;
 		std::string	const	getName (void) const;
+
+		void	beSigned (Bureaucrat &signee);
 
 		class	GradeTooHighException : public std::exception {
 			virtual	const char* what() const throw();
@@ -29,6 +31,7 @@ class	Form
 		class	GradeTooLowException : public std::exception {
 			virtual	const char* what() const throw();
 		};
+
 
 	private	:
 		std::string	const	_name;
