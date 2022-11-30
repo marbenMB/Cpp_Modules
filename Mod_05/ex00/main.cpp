@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/30 17:29:11 by mbenbajj          #+#    #+#             */
+/*   Updated: 2022/11/30 17:31:06 by mbenbajj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 
 int main()
@@ -5,6 +17,7 @@ int main()
 	
 	try
 	{
+		// Bureaucrat	goko("", 5); -> Element exception
 		Bureaucrat	goko("Goko", 5);
 		Bureaucrat	vegita("Vegita", 150);
 
