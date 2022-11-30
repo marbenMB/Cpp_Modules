@@ -5,7 +5,7 @@ int main()
 	
 	try
 	{
-		Bureaucrat	goko("", 5);
+		Bureaucrat	goko("Goko", 5);
 		Bureaucrat	vegita("Vegita", 150);
 
 		goko.incGrade();
