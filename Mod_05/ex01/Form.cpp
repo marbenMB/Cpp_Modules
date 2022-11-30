@@ -15,7 +15,7 @@ Form::~Form()
 	std::cout << "Form : Destructor Called" << std::endl;
 }
 
-Form::Form(Form const &obj)
+Form::Form(Form const &obj) : _name(obj._name), _required(obj._required), _execute(obj._execute)
 {
 	std::cout << "Copy Constructor Called" << std::endl;
 	if (this != &obj)
@@ -34,9 +34,9 @@ Form	&Form::operator= (const Form &obj)
 
 bool	Form::getSign (void) const { return (this->_isSigned); }
 
-int	const	Form::getReq (void) const { return (this->_required); }
+int		Form::getReq (void) const { return (this->_required); }
 
-int	const	Form::getExec (void) const { return (this->_execute); }
+int		Form::getExec (void) const { return (this->_execute); }
 
 std::string	const Form::getName (void) const { return (this->_name); }
 
@@ -50,10 +50,25 @@ const	char*	Form::GradeTooLowException::what() const throw()
 	return ("Grade To High To Sigh!!");
 }
 
+void	Form::beSigned (Bureaucrat &signee)
+{
+	if (signee.getGrade() > this->_required)
+	{
+		signee.signForm(_name, _isSigned);
+		throw Form::GradeTooLowException();
+	}
+	else
+	{
+		this->_isSigned = 1;
+		signee.signForm(_name, _isSigned);
+	}
+}
+
 std::ostream	&operator<< (std::ostream &out, Form const &obj)
 {
 	out << "- Form Name : " << obj.getName() << std::endl
 		<< "- Is Signed : " << obj.getSign() << std::endl
 		<< "- Required  : " << obj.getReq() << std::endl
 		<< "- Executer  : " << obj.getExec() << std::endl;
+	return (out);
 }

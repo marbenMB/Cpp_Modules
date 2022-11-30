@@ -22,6 +22,8 @@ class	Bureaucrat
 		void		incGrade (void);
 		void		decGrade (void);
 
+		void	signForm (std::string name, bool call) const;
+		
 		class	GradeTooHighException : public std::exception {
 			virtual const char*	what() const throw();
 		};
@@ -29,6 +31,7 @@ class	Bureaucrat
 		class	GradeTooLowException : public std::exception {
 			virtual const char*	what() const throw();
 		};
+
 
 	private	:
 		std::string	const	_name;
