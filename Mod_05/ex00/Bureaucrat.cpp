@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/30 17:29:06 by mbenbajj          #+#    #+#             */
+/*   Updated: 2022/11/30 17:29:07 by mbenbajj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat()
@@ -21,11 +33,13 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Bureaucrat : Destructor Called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &obj)
+Bureaucrat::Bureaucrat(Bureaucrat const &obj) : _name(obj._name)
 {
 	std::cout << "Copy Constructor Called" << std::endl;
 	if (this != &obj)
+	{
 		*this = obj;
+	}
 }
 
 Bureaucrat	&Bureaucrat::operator= (const Bureaucrat &obj)
