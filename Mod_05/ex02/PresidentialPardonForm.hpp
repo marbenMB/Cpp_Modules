@@ -17,7 +17,7 @@ class	PresidentialPardonForm : public AForm
 		~PresidentialPardonForm ();
 		PresidentialPardonForm &operator= (const PresidentialPardonForm &obj);
 
-		// virtual void	execute (Bureaucrat const &executor) const;
+		virtual void	execute (Bureaucrat const &executor) const;
 	private	:
 		// private attribute.
 };

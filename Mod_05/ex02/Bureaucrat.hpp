@@ -3,10 +3,13 @@
 
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
 
 // ******************************************************** //
 //                         CLASSES                         //
 // ****************************************************** //
+
+class	AForm;
 
 class	Bureaucrat
 {
@@ -22,7 +25,7 @@ class	Bureaucrat
 		void		incGrade (void);
 		void		decGrade (void);
 
-		void	signForm (std::string name, bool call) const;
+		void	signForm (AForm &formule) const;
 		
 		class	GradeTooHighException : public std::exception {
 			virtual const char*	what() const throw();

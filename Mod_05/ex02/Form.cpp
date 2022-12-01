@@ -53,15 +53,9 @@ const	char*	AForm::GradeTooLowException::what() const throw()
 void	AForm::beSigned (Bureaucrat &signee)
 {
 	if (signee.getGrade() > this->_required)
-	{
-		signee.signForm(_name, _isSigned);
 		throw AForm::GradeTooLowException();
-	}
 	else
-	{
 		this->_isSigned = 1;
-		signee.signForm(_name, _isSigned);
-	}
 }
 
 int	AForm::check_excution (int executor) const
