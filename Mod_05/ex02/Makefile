@@ -6,11 +6,11 @@
 #    By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 08:57:25 by mbenbajj          #+#    #+#              #
-#    Updated: 2022/12/01 08:57:26 by mbenbajj         ###   ########.fr        #
+#    Updated: 2022/12/01 09:03:16 by mbenbajj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Form 
+NAME = 28B 
 
 CXXFLAGS = -Wall -Wextra -Werror 
 
