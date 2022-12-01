@@ -7,14 +7,26 @@ int main()
 {
 	try
 	{
-		Bureaucrat				m9edem("m9edem", 1);
+		Bureaucrat				king("King", 1);
+		Bureaucrat				m9edem("m9edem", 20);
+		Bureaucrat				chawch("Chawch", 40);
 		ShrubberyCreationForm	a("sokna");
 		PresidentialPardonForm	b("l3afow");
+		RobotomyRequestForm		c("Roboto");
+
+		std::cout << std::endl << "**** Starting Tests ****" << std::endl << std::endl;
 		
-		// a.beSigned(m9edem);
-		// a.execute(m9edem);
-		b.beSigned(m9edem);
-		// b.execute(m9edem);
+		a.beSigned(chawch);
+		chawch.signForm(a);
+		a.execute(chawch);
+
+		c.beSigned(chawch);
+		chawch.signForm(c);
+		c.execute(chawch);
+
+		b.beSigned(king);
+		king.signForm(b);
+		b.execute(king);
 	}
 	catch (const char *msg)
 	{
@@ -24,5 +36,6 @@ int main()
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	std::cout << std::endl << "**** Finishing Tests ****" << std::endl << std::endl;
 	return (0);
 }

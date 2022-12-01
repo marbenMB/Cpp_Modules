@@ -32,3 +32,15 @@ RobotomyRequestForm	&RobotomyRequestForm::operator= (const RobotomyRequestForm &
 	}
 	return (*this);
 }
+
+void	RobotomyRequestForm::execute (Bureaucrat const &executor) const
+{
+	srand(time(0));
+	int	choice = rand() % 2;	
+	if (!check_excution(executor.getGrade()))
+		throw	AForm::GradeTooLowException();
+	if (choice)
+		std::cout << this->_target << " has been robotomized successfully!!" << std::endl;
+	else
+		std::cout << "Robotomy Failed!!" << std::endl;
+}
