@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 08:56:23 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/01 08:56:24 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/01 09:07:06 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,15 @@ void	Bureaucrat::signForm (AForm &formule) const
 				<< formule.getName() << " , Too Low Grade!!"
 				<< std::endl;
 	}
+}
+
+void	Bureaucrat::executeForm (AForm const &form)
+{
+	if (form.check_excution(_grade))
+		std::cout << _name << " executed " << form.getName() << std::endl;
+	else
+		std::cout << _name << " Couldn't execute " << form.getName() << std::endl;
+	form.execute(*this);
 }
 
 std::ostream	&operator<< (std::ostream &out, Bureaucrat	const &obj)

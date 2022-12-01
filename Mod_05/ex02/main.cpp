@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 08:57:23 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/01 08:57:24 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/01 09:09:50 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,16 @@ int main()
 		
 		a.beSigned(chawch);
 		chawch.signForm(a);
-		a.execute(chawch);
+		chawch.executeForm(a);
 
-		c.beSigned(chawch);
-		chawch.signForm(c);
-		c.execute(chawch);
+		c.beSigned(m9edem);
+		m9edem.signForm(c);
+		m9edem.executeForm(c);
 
 		b.beSigned(king);
 		king.signForm(b);
-		b.execute(king);
+		king.executeForm(b);
+		// chawch.executeForm(b);
 	}
 	catch (const char *msg)
 	{
