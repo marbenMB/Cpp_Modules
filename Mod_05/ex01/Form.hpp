@@ -8,6 +8,8 @@
 //                         CLASSES                         //
 // ****************************************************** //
 
+class	Bureaucrat;
+
 class	Form
 {
 	public	:

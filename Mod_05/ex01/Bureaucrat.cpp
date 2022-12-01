@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -68,14 +69,14 @@ const	char*	Bureaucrat::GradeTooLowException::what() const throw()
 	return ("Grade Too Low!!");
 }
 
-void	Bureaucrat::signForm (std::string name, bool call) const
+void	Bureaucrat::signForm (Form &formule) const
 {
-	if (call)
-		std::cout << this->getName() << " signed " << name << std::endl;
+	if (this->_grade <= formule.getReq())
+		std::cout << this->getName() << " signed " << formule.getName() << std::endl;
 	else
 	{
 		std::cout << this->getName() << " couldn't sign "
-				<< name << " , Too Low Grade!!"
+				<< formule.getName() << " , Too Low Grade!!"
 				<< std::endl;
 	}
 }
