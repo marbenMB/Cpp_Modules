@@ -9,6 +9,8 @@
 //                         CLASSES                         //
 // ****************************************************** //
 
+class	Bureaucrat;
+
 class	AForm
 {
 	public	:

@@ -7,11 +7,14 @@ int main()
 {
 	try
 	{
-		Bureaucrat				m9edem("m9edem", 55);
+		Bureaucrat				m9edem("m9edem", 1);
 		ShrubberyCreationForm	a("sokna");
+		PresidentialPardonForm	b("l3afow");
 		
-		a.beSigned(m9edem);
-		a.execute(m9edem);
+		// a.beSigned(m9edem);
+		// a.execute(m9edem);
+		b.beSigned(m9edem);
+		// b.execute(m9edem);
 	}
 	catch (const char *msg)
 	{

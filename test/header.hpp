@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 01:05:12 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/26 12:58:40 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/11/30 18:55:41 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,15 @@ class	Car : public Vihecule
 		virtual void	printChara(void){
 			std::cout << "Car Wheels : " << _nbWheel << std::endl;
 		}
+};
+
+class Test
+{
+	int const	x;
+	public : 
+		Test(){};
+		int getX() {	return (x);	}
+		void setX(int _x){	this->x = _x;	};
 };
 // ******************************************************** //
 //                        FUNCTIONS                        //
