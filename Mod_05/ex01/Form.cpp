@@ -42,12 +42,12 @@ std::string	const Form::getName (void) const { return (this->_name); }
 
 const	char*	Form::GradeTooHighException::what() const throw()
 {
-	return ("Grade Too Low To Sign!!");
+	return ("Grade Too High To Sign!!");
 }
 
 const	char*	Form::GradeTooLowException::what() const throw()
 {
-	return ("Grade To High To Sigh!!");
+	return ("Grade To Low To Sigh!!");
 }
 
 void	Form::beSigned (Bureaucrat &signee)
