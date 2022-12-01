@@ -2,6 +2,7 @@
 #define _RobotomyRequestForm_HPP_
 
 #include <iostream>
+#include <cstdlib>
 #include "Form.hpp"
 
 // ******************************************************** //
@@ -17,7 +18,7 @@ class	RobotomyRequestForm : public AForm
 		~RobotomyRequestForm ();
 		RobotomyRequestForm &operator= (const RobotomyRequestForm &obj);
 
-		// virtual void	execute (Bureaucrat const &executor) const;
+		virtual void	execute (Bureaucrat const &executor) const;
 	private	:
 		// private attribute.
 };
