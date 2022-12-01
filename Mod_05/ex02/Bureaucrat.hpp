@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/01 08:57:03 by mbenbajj          #+#    #+#             */
+/*   Updated: 2022/12/01 08:57:04 by mbenbajj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef _Bureaucrat_HPP_
 #define _Bureaucrat_HPP_
 
@@ -26,6 +38,7 @@ class	Bureaucrat
 		void		decGrade (void);
 
 		void	signForm (AForm &formule) const;
+		void	executeForm (AForm const &form);
 		
 		class	GradeTooHighException : public std::exception {
 			virtual const char*	what() const throw();
