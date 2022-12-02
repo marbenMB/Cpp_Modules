@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 08:57:20 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/01 08:57:21 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/02 02:59:10 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class	AForm
 		AForm ();
 		AForm (std::string name, int req, int exec);
 		AForm (AForm const &obj);
-		~AForm ();
+		virtual	~AForm ();
 		AForm &operator= (const AForm &obj);
 
 		bool		getSign (void) const;
