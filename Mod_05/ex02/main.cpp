@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 08:57:23 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/01 09:09:50 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/02 03:46:07 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,42 @@ int main()
 {
 	try
 	{
-		Bureaucrat				king("King", 1);
-		Bureaucrat				m9edem("m9edem", 20);
-		Bureaucrat				chawch("Chawch", 40);
-		ShrubberyCreationForm	a("sokna");
-		PresidentialPardonForm	b("l3afow");
-		RobotomyRequestForm		c("Roboto");
+		Bureaucrat	king("King", 1);
+		Bureaucrat	mayor("Mayor", 40);
+		Bureaucrat	governor("Governor", 60);
+
+		ShrubberyCreationForm	repairs("Reparations"); // s : 145 - E : 137
+		RobotomyRequestForm		living("Living"); 	// s : 72 - E : 45
+		PresidentialPardonForm	criminal("International Criminal");	// s : 25 - E : 5
 
 		std::cout << std::endl << "**** Starting Tests ****" << std::endl << std::endl;
+		governor.signForm(repairs);
+		repairs.beSigned(governor);
+		governor.executeForm(repairs);
 		
-		a.beSigned(chawch);
-		chawch.signForm(a);
-		chawch.executeForm(a);
+		std::cout << std::endl;
 
-		c.beSigned(m9edem);
-		m9edem.signForm(c);
-		m9edem.executeForm(c);
+		mayor.signForm(living);
+		living.beSigned(mayor);
+		mayor.executeForm(living);
+		// governor.executeForm(living);	// Throw Low Grade Exception.
+		
+		std::cout << std::endl;
 
-		b.beSigned(king);
-		king.signForm(b);
-		king.executeForm(b);
-		// chawch.executeForm(b);
+		king.signForm(criminal);
+		criminal.beSigned(king);
+		king.executeForm(criminal);
+		// mayor.executeForm(criminal);	// Throw Low Grade Exception.
+		
+		std::cout << std::endl << "**** Finishing Tests ****" << std::endl << std::endl;
 	}
 	catch (const char *msg)
 	{
-		std::cerr << msg << std::endl;
+		std::cerr << "-+>	" << msg << "    <+-" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << "-+>	" << e.what() << "    <+-" << std::endl;
 	}
-	std::cout << std::endl << "**** Finishing Tests ****" << std::endl << std::endl;
 	return (0);
 }
