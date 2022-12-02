@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 08:57:23 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/02 03:01:18 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/02 05:28:48 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,43 +20,49 @@ int main()
 {
 	try
 	{
-		// Bureaucrat				king("King", 1);
-		// Bureaucrat				m9edem("m9edem", 20);
-		// Bureaucrat				chawch("Chawch", 40);
-		// ShrubberyCreationForm	a("sokna");
-		// PresidentialPardonForm	b("l3afow");
-		// RobotomyRequestForm		c("Roboto");
+		Bureaucrat	king("King", 1);
+		Bureaucrat	mayor("Mayor", 40);
+		Bureaucrat	governor("Governor", 60);
 
-		std::cout << std::endl << "**** Starting Tests ****" << std::endl << std::endl;
+		Intern	governorIntern;
+		Intern	mayorIntern;
+		Intern	kingIntern;
+		AForm*	repairsForm = governorIntern.makeForm("Shrubbery Creation", "Reparations");
+		AForm*	livingForm = mayorIntern.makeForm("Robotomy Request", "Living");
+		AForm*	criminalForm = kingIntern.makeForm("Presidential Pardon", "International Criminal");
 		
-		// a.beSigned(chawch);
-		// chawch.signForm(a);
-		// chawch.executeForm(a);
+		std::cout << std::endl << "**** Starting Tests ****" << std::endl << std::endl;
+		governor.signForm(*repairsForm);
+		repairsForm->beSigned(governor);
+		governor.executeForm(*repairsForm);
+		
+		std::cout << std::endl;
 
-		// c.beSigned(m9edem);
-		// m9edem.signForm(c);
-		// m9edem.executeForm(c);
+		mayor.signForm(*livingForm);
+		livingForm->beSigned(mayor);
+		mayor.executeForm(*livingForm);
+		// governor.executeForm(living);	// Throw Low Grade Exception.
+		
+		std::cout << std::endl;
 
-		// b.beSigned(king);
-		// king.signForm(b);
-		// king.executeForm(b);
-		// chawch.executeForm(b);
-		Bureaucrat	king("king", 1);
-		Intern	intern;
-		AForm*	form = intern.makeForm("RobotomyRequest", "Bni 3achwa2i");
-
-		form->beSigned(king);
-		std::cout << form->getSign() << std::endl;
-		delete	form;
+		king.signForm(*criminalForm);
+		criminalForm->beSigned(king);
+		king.executeForm(*criminalForm);
+		// mayor.executeForm(criminal);	// Throw Low Grade Exception.
+	
+		std::cout << std::endl << "**** Finishing Tests ****" << std::endl << std::endl;
+		
+		delete	repairsForm;
+		delete	livingForm;
+		delete	criminalForm;
 	}
 	catch (const char *msg)
 	{
-		std::cerr << msg << std::endl;
+		std::cerr << "-+>	" << msg << "    <+-"<< std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << "-+>	" << e.what() << "    <+-" << std::endl;
 	}
-	std::cout << std::endl << "**** Finishing Tests ****" << std::endl << std::endl;
 	return (0);
 }
