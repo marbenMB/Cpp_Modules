@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:37 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/04 14:20:12 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/04 15:28:50 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Base	&Base::operator= (const Base &obj)
 void	Base::parseArg (void)
 {
 	if (isInt())
-		
+		std::cout << "Int " << std::endl;
 }
 
 bool	Base::isChar (void)
