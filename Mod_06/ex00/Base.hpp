@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:41 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/04 01:09:42 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:18:31 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 #define _Base_HPP_
 
 #include <iostream>
+#include <sstream>
+#include <climits>
 #include <exception>
 
 enum	Macros {
+	DOTED = 12,
+	SIGNED = 13,
 	INIT = 14,
 	_NAN = 15,
 	_INF,
@@ -42,7 +46,11 @@ class	Base
 		~Base ();
 		Base &operator= (const Base &obj);
 
-		void	parseArg (void);		
+		void	parseArg (void);
+		bool	isInt (void);
+		bool	isChar (void);
+		bool	isFloat (void);
+		bool	isDouble (void);
 
 	private	:
 		int		_type;

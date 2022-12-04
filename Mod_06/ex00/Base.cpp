@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:37 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/04 01:09:38 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:20:12 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,34 @@ Base	&Base::operator= (const Base &obj)
 
 void	Base::parseArg (void)
 {
+	if (isInt())
+		
+}
+
+bool	Base::isChar (void)
+{
+	if (arg.length() == 1 && isalpha(arg[0]))
+		return true;
+	return (false);
+}
+
+bool	Base::isInt (void)
+{
+	long long	num;
+	int			i = -1;
 	
+	if (arg[++i] == '+' || arg[i] == '-')
+		i++;
+	while (arg[i])
+	{
+		if (!isdigit(arg[i]))
+			return false;
+		i++;
+	}
+	std::stringstream(arg) >> num;
+	
+	if (num > INT_MAX || num < INT_MIN || arg.empty())
+		return false;
+	
+	return true;
 }
