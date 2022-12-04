@@ -29,9 +29,41 @@
 // 	return 0;
 // }
 
-int main()
+enum toto
 {
-	Test a;
-	a.setX(4);
-	std::cout << a.getX();
+	NUM = 4,
+	CHAR,
+	INT,
+	FLOAT
+
+};
+
+int main(int ac, char **av)
+{
+	// int		verI;
+	enum toto	my;
+	int			a;
+	// float	verF;
+	// double	verD;
+	// char	verC;
+
+	if (ac != 2)
+		return 1;
+	my = CHAR;
+	a = NUM;
+	std::cout << my << " " << a << std::endl;
+	std::cout << av[1] << std::endl;
+	// verF = std::stof(av[1]);
+	// verI = static_cast<int> (*av[1]);
+	// verF = static_cast<float> (*av[1]);
+	// verD = static_cast<double> (*av[1]);
+
+	// std::cout << "char : " << *av[1] << std::endl;
+	// std::cout << "Int : " << verI << std::endl;
+	// std::cout << "Float : " << verF << std::endl;
+
+	// std::cout << "Double : " << verD << std::endl;
+
+
+	return 0;
 }
