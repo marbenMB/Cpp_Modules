@@ -45,9 +45,8 @@ class Test
 {
 	int const	x;
 	public : 
-		Test(){};
+		Test() : x(0) {};
 		int getX() {	return (x);	}
-		void setX(int _x){	this->x = _x;	};
 };
 // ******************************************************** //
 //                        FUNCTIONS                        //

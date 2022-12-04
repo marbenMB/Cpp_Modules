@@ -12,11 +12,22 @@
 
 #include "Base.hpp"
 
-int main()
+int main(int ac, char **av)
 {
-	//	You Code
+	Base	convert;
 
-	std::cout << "******	MAR_BEN CREATION √	******" << std::endl;
+	try {
+		if (ac != 2)
+			throw "Bad Arguments !!";
+		convert.arg = std::string(av[1]);
+		std::cout << convert.arg << std::endl;
+	}
+	catch (const char* msg) {
+		std::cout << msg << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 
 	return (0);
 }
