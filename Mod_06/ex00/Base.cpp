@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:37 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/04 15:28:50 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/07 00:35:12 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,30 @@ void	Base::parseArg (void)
 {
 	if (isInt())
 		std::cout << "Int " << std::endl;
+}
+
+bool	Base::findDot(void)
+{
+	int		i = 0;
+	int		idx = 0;
+	bool	check = 0;
+
+	while (arg[i])
+	{
+		idx = arg.find('.', i);
+		if (idx != -1)
+		{
+			i += idx++;
+			if (!check)
+				check = 1;
+			if (check)
+			{
+				check = 0;
+				break ;
+			}
+		}
+	}
+	return	check;
 }
 
 bool	Base::isChar (void)

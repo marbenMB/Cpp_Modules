@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:41 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/04 14:18:31 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/06 23:49:22 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ class	Base
 		Base &operator= (const Base &obj);
 
 		void	parseArg (void);
+		bool	findDot(void);
 		bool	isInt (void);
 		bool	isChar (void);
 		bool	isFloat (void);
