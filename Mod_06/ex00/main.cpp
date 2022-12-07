@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:54 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/04 01:09:55 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/06 23:39:31 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ int main(int ac, char **av)
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
-
 	return (0);
 }
