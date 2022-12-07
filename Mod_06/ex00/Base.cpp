@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:37 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/07 10:28:38 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/07 11:20:09 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,16 +119,18 @@ void	Base::findDot(void)
 void	Base::isFloat (void)
 {
 	double				num;
-	std::string			str;
+	std::string			str(arg);
 	std::stringstream	ss;
 
-	str = arg;
-	ss << str.erase(arg.length() - 1);
+	str.erase(str.length() - 1);
+	ss << str.c_str();
 	ss >> num;
+	std::cout << str << std::endl;
 	if (ss.fail())
 		throw Base::ErrorArg();
 	if (floorf(num) > INT_MAX)
 		throw Base::MaxDataType();
+	std::cout << num << std::endl;
 	_type = FLOAT;
 }
 
