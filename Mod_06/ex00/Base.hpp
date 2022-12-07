@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:41 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/07 10:28:29 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/07 17:29:49 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,24 @@ class	Base
 			virtual const char*	what(void) const throw();
 		};
 
-		int	getType (void) const { return _type; };
+		int		getType (void) const { return _type; };
+		double	getValue (void) const { return _value; };
 
+		// double	readArg (char* arg);
+		void	isNumeric (std::string arg);
 		void	parseArg (void);
 		void	findDot(void);
-		// void	isInt (void);
-		// void	isChar (void);
+		void	isInt (void);
+		void	isChar (void);
 		void	isFloat (void);
-		// void	isDouble (void);
+		void	isDouble (void);
 
 	private	:
 		int		_type;
-		int		_float;
 		int		_sign;
 		int		_dot;
+		double	_value;
+		bool	_valid;
 };
 
 // ******************************************************** //

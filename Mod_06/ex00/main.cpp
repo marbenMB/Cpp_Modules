@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:54 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/07 10:21:36 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:38:09 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int ac, char **av)
 			throw "Bad Arguments !!";
 		convert.arg = std::string(av[1]);
 		convert.parseArg();
-		std::cout << convert.arg << " is : " << convert.getType() << std::endl;
+		std::cout << convert.getValue() << " is : " << convert.getType() << std::endl;
 	}
 	catch (const char* msg) {
 		std::cout << msg << std::endl;
