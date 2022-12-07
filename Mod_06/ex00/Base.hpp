@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:41 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/06 23:49:22 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/07 10:28:29 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <sstream>
 #include <climits>
 #include <exception>
+#include <cmath>
+#include <climits>
 
 enum	Macros {
 	DOTED = 12,
@@ -46,12 +48,21 @@ class	Base
 		~Base ();
 		Base &operator= (const Base &obj);
 
+		class	ErrorArg : public std::exception {
+			virtual const char*	what(void) const throw();
+		};
+		class	MaxDataType : public std::exception {
+			virtual const char*	what(void) const throw();
+		};
+
+		int	getType (void) const { return _type; };
+
 		void	parseArg (void);
-		bool	findDot(void);
-		bool	isInt (void);
-		bool	isChar (void);
-		bool	isFloat (void);
-		bool	isDouble (void);
+		void	findDot(void);
+		// void	isInt (void);
+		// void	isChar (void);
+		void	isFloat (void);
+		// void	isDouble (void);
 
 	private	:
 		int		_type;
