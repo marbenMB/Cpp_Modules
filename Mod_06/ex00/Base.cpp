@@ -6,38 +6,31 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:37 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/07 11:20:09 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/07 17:29:52 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
 
-Base::Base() : _type(INIT), _float(INIT), _sign(INIT), _dot(0)
-{
-	// std::cout << "Base : Default Constructor Called" << std::endl;
-}
+Base::Base() : _type(INIT), _sign(INIT), _dot(0), _valid(0) {}
 
-Base::~Base()
-{
-	// std::cout << "Base : Destructor Called" << std::endl;
-}
+Base::~Base() {}
 
 Base::Base(Base const &obj)
 {
-	// std::cout << "Copy Constructor Called" << std::endl;
 	if (this != &obj)
 		*this = obj;
 }
 
 Base	&Base::operator= (const Base &obj)
 {
-	// std::cout << "Copy Assignment Operator Called" << std::endl;
 	if (this != &obj)
 	{
 		_type = obj._type;
-		_float = obj._float;
 		_sign = obj._sign;
 		_dot = obj._dot;
+		_value = obj._value;
+		_valid = obj._valid;
 	}
 	return (*this);
 }
@@ -52,6 +45,18 @@ const char* Base::MaxDataType::what(void) const throw()
 	return "Limit For Data Type!!";
 }
 
+void	Base::isNumeric (std::string arg)
+{
+	size_t idx = 0;
+	
+	if (arg[idx] == '-' || arg[idx] == '+')
+		idx++;
+	for (size_t i = idx; i < arg.length(); i++)
+		if (!isdigit(arg[i]) && arg[i] != '.')
+			throw Base::ErrorArg();
+	_valid = 1;
+}
+
 void	Base::parseArg (void)
 {
 	findDot();
@@ -59,11 +64,18 @@ void	Base::parseArg (void)
 	{
 		if (arg[arg.length() - 1] == 'f')
 			isFloat();
-		// else
-		// 	isDouble();
+		else
+			isDouble();
 	}
-	// if (!_dot)
-		
+	else
+	{
+		if (isdigit(arg[0]) || ((arg[0] == '-' || arg[0] == '+') && arg.length() > 1))
+			isInt();
+		else if (_type == INIT && arg.length() == 1)
+			isChar();
+		else
+			throw Base::ErrorArg();
+	}
 }
 
 void	Base::findDot(void)
@@ -88,32 +100,16 @@ void	Base::findDot(void)
 	}
 }
 
-// void	Base::isChar (void)
+// double	Base::readArg (char* arg)
 // {
-// 	if (arg.length() == 1 && isalpha(arg[0]))
-// 		return true;
-// 	return (false);
-// }
+// 	double				num;
+// 	std::stringstream	ss;
 
-// void	Base::isInt (void)
-// {
-// 	long long	num;
-// 	int			i = -1;
-	
-// 	if (arg[++i] == '+' || arg[i] == '-')
-// 		i++;
-// 	while (arg[i])
-// 	{
-// 		if (!isdigit(arg[i]))
-// 			return false;
-// 		i++;
-// 	}
-// 	std::stringstream(arg) >> num;
-	
-// 	if (num > INT_MAX || num < INT_MIN || arg.empty())
-// 		return false;
-	
-// 	return true;
+// 	ss << arg;
+// 	ss >> num;
+// 	if (ss.fail())
+// 		throw Base::ErrorArg();
+// 	return num;
 // }
 
 void	Base::isFloat (void)
@@ -123,18 +119,50 @@ void	Base::isFloat (void)
 	std::stringstream	ss;
 
 	str.erase(str.length() - 1);
+	isNumeric(str);
 	ss << str.c_str();
 	ss >> num;
-	std::cout << str << std::endl;
 	if (ss.fail())
 		throw Base::ErrorArg();
-	if (floorf(num) > INT_MAX)
+	if (floorf(num) > INT_MAX || floorf(num) < INT_MIN)
 		throw Base::MaxDataType();
-	std::cout << num << std::endl;
+	_value = num;
 	_type = FLOAT;
 }
 
-// void	Base::isDouble (void)
-// {
+void	Base::isDouble (void)
+{
+	double				num;
+	std::string			str(arg);
+	std::stringstream	ss;
+
+	isNumeric(str);
+	ss << str.c_str();
+	ss >> num;
+	if (ss.fail())
+		throw Base::ErrorArg();
+	_value = num;
+	_type = DOUBLE;
+}
+
+void	Base::isInt (void)
+{
+	double				num;
+	std::string			str(arg);
+	std::stringstream	ss;
+
+	isNumeric(str);
+	ss << str.c_str();
+	ss >> num;
+	if (ss.fail())
+		throw Base::ErrorArg();
+	if (num < INT_MIN || num > INT_MAX)
+		throw Base::MaxDataType();
+	_value = num;
+	_type = INT;
+}
+
+void	Base::isChar (void)
+{
 	
-// }
+}
