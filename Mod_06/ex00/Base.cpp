@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:37 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/07 18:57:50 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/07 21:55:05 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,24 +57,57 @@ void	Base::isNumeric (std::string arg)
 	_valid = 1;
 }
 
+void	Base::isNan (void)
+{
+	std::stringstream	ss;
+	std::string			str(arg);
+
+	ss << str.c_str();
+	if (!arg.compare("-inf"))
+		_type = _INF;
+	else if (!arg.compare("+inf"))
+		_type = INF;
+	else if (!arg.compare("-inff"))
+	{
+		ss.str("");
+		ss.clear();
+		ss << arg.erase(arg.length() - 1);
+		_type = _INFF;
+	}
+	else if (!arg.compare("+inff"))
+	{
+		ss.str("");
+		ss.clear();
+		ss << arg.erase(arg.length() - 1);
+		_type = INFF;
+	}
+	else if	(!arg.compare("nan"))
+		_type = _NAN;
+	ss >> _value;
+}
+
 void	Base::parseArg (void)
 {
-	findDot();
-	if (_dot)
-	{
-		if (arg[arg.length() - 1] == 'f')
-			isFloat();
+	isNan();
+	if (_type == INIT)
+	{		
+		findDot();
+		if (_dot)
+		{
+			if (arg[arg.length() - 1] == 'f')
+				isFloat();
+			else
+				isDouble();
+		}
 		else
-			isDouble();
-	}
-	else
-	{
-		if (isdigit(arg[0]) || ((arg[0] == '-' || arg[0] == '+') && arg.length() > 1))
-			isInt();
-		else if (_type == INIT && arg.length() == 1)
-			isChar();
-		else
-			throw Base::ErrorArg();
+		{
+			if (isdigit(arg[0]) || ((arg[0] == '-' || arg[0] == '+') && arg.length() > 1))
+				isInt();
+			else if (_type == INIT && arg.length() == 1)
+				isChar();
+			else
+				throw Base::ErrorArg();
+		}
 	}
 }
 
@@ -120,7 +153,7 @@ void	Base::isFloat (void)
 
 	str.erase(str.length() - 1);
 	num = readArg(str.c_str());
-	if (floorf(num) > INT_MAX || floorf(num) < INT_MIN)
+	if (floor(num) > INT_MAX || floor(num) < INT_MIN)
 		throw Base::MaxDataType();
 	_value = num;
 	_type = FLOAT;
@@ -152,4 +185,11 @@ void	Base::isChar (void)
 {
 	_value = arg[0];
 	_type = CHAR;
+}
+
+std::ostream&	operator<< (std::ostream& out, Base const &obj)
+{
+	//	CHAR : 
+	out << "Char : ";
+	
 }
