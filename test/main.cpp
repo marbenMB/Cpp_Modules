@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:21:15 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/05 09:03:09 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/07 11:17:51 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,18 @@ int main(int ac, char **av)
 {
 	if (ac != 2)
 		return 1;
-	
-	float	x;	
-	std::string arg = av[1];
-	std::stringstream ss;
+	std::string			arg(av[1]);
+	std::stringstream	ss;
+	double				num;
+
 	ss << arg;
-	ss >> x;
+	ss >> num;
+	
+	std::cout << arg << std::endl;
 	if (ss.fail())
-		std::cout << "String Stream Failed !!" << std::endl;
-	std::cout << x << std::endl;
+		std::cout << "Failled" << std::endl;
+	else
+		std::cout << num << std::endl;
+
 	return 0;
 }
