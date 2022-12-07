@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:37 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/07 17:29:52 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:57:50 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,30 +100,26 @@ void	Base::findDot(void)
 	}
 }
 
-// double	Base::readArg (char* arg)
-// {
-// 	double				num;
-// 	std::stringstream	ss;
+double	Base::readArg (const char* arg)
+{
+	double				num;
+	std::stringstream	ss;
 
-// 	ss << arg;
-// 	ss >> num;
-// 	if (ss.fail())
-// 		throw Base::ErrorArg();
-// 	return num;
-// }
+	isNumeric(arg);
+	ss << arg;
+	ss >> num;
+	if (ss.fail())
+		throw Base::ErrorArg();
+	return num;
+}
 
 void	Base::isFloat (void)
 {
 	double				num;
 	std::string			str(arg);
-	std::stringstream	ss;
 
 	str.erase(str.length() - 1);
-	isNumeric(str);
-	ss << str.c_str();
-	ss >> num;
-	if (ss.fail())
-		throw Base::ErrorArg();
+	num = readArg(str.c_str());
 	if (floorf(num) > INT_MAX || floorf(num) < INT_MIN)
 		throw Base::MaxDataType();
 	_value = num;
@@ -134,13 +130,8 @@ void	Base::isDouble (void)
 {
 	double				num;
 	std::string			str(arg);
-	std::stringstream	ss;
 
-	isNumeric(str);
-	ss << str.c_str();
-	ss >> num;
-	if (ss.fail())
-		throw Base::ErrorArg();
+	num = readArg(str.c_str());
 	_value = num;
 	_type = DOUBLE;
 }
@@ -149,13 +140,8 @@ void	Base::isInt (void)
 {
 	double				num;
 	std::string			str(arg);
-	std::stringstream	ss;
 
-	isNumeric(str);
-	ss << str.c_str();
-	ss >> num;
-	if (ss.fail())
-		throw Base::ErrorArg();
+	num = readArg(str.c_str());
 	if (num < INT_MIN || num > INT_MAX)
 		throw Base::MaxDataType();
 	_value = num;
@@ -164,5 +150,6 @@ void	Base::isInt (void)
 
 void	Base::isChar (void)
 {
-	
+	_value = arg[0];
+	_type = CHAR;
 }

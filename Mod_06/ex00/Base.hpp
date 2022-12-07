@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:41 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/07 17:29:49 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:55:26 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ class	Base
 		int		getType (void) const { return _type; };
 		double	getValue (void) const { return _value; };
 
-		// double	readArg (char* arg);
+		double	readArg (const char* arg);
 		void	isNumeric (std::string arg);
 		void	parseArg (void);
 		void	findDot(void);
