@@ -6,13 +6,13 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:37 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/07 00:35:12 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/07 10:28:38 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
 
-Base::Base() : _type(INIT), _float(INIT), _sign(INIT), _dot(INIT)
+Base::Base() : _type(INIT), _float(INIT), _sign(INIT), _dot(0)
 {
 	// std::cout << "Base : Default Constructor Called" << std::endl;
 }
@@ -42,60 +42,97 @@ Base	&Base::operator= (const Base &obj)
 	return (*this);
 }
 
-void	Base::parseArg (void)
+const char*	Base::ErrorArg::what(void) const throw()
 {
-	if (isInt())
-		std::cout << "Int " << std::endl;
+	return "Not A Valid Argument!!";
 }
 
-bool	Base::findDot(void)
+const char* Base::MaxDataType::what(void) const throw()
 {
-	int		i = 0;
-	int		idx = 0;
-	bool	check = 0;
+	return "Limit For Data Type!!";
+}
 
-	while (arg[i])
+void	Base::parseArg (void)
+{
+	findDot();
+	if (_dot)
+	{
+		if (arg[arg.length() - 1] == 'f')
+			isFloat();
+		// else
+		// 	isDouble();
+	}
+	// if (!_dot)
+		
+}
+
+void	Base::findDot(void)
+{
+	size_t 	idx = 0;
+	int		i = 0;
+
+	while (idx != std::string::npos)
 	{
 		idx = arg.find('.', i);
-		if (idx != -1)
+		if (idx != std::string::npos)
 		{
-			i += idx++;
-			if (!check)
-				check = 1;
-			if (check)
+			i += ++idx;
+			if (!_dot)
+				_dot = DOTED;
+			else if (_dot)
 			{
-				check = 0;
-				break ;
+				_dot = 0;
+				throw	Base::ErrorArg();
 			}
 		}
 	}
-	return	check;
 }
 
-bool	Base::isChar (void)
+// void	Base::isChar (void)
+// {
+// 	if (arg.length() == 1 && isalpha(arg[0]))
+// 		return true;
+// 	return (false);
+// }
+
+// void	Base::isInt (void)
+// {
+// 	long long	num;
+// 	int			i = -1;
+	
+// 	if (arg[++i] == '+' || arg[i] == '-')
+// 		i++;
+// 	while (arg[i])
+// 	{
+// 		if (!isdigit(arg[i]))
+// 			return false;
+// 		i++;
+// 	}
+// 	std::stringstream(arg) >> num;
+	
+// 	if (num > INT_MAX || num < INT_MIN || arg.empty())
+// 		return false;
+	
+// 	return true;
+// }
+
+void	Base::isFloat (void)
 {
-	if (arg.length() == 1 && isalpha(arg[0]))
-		return true;
-	return (false);
+	double				num;
+	std::string			str;
+	std::stringstream	ss;
+
+	str = arg;
+	ss << str.erase(arg.length() - 1);
+	ss >> num;
+	if (ss.fail())
+		throw Base::ErrorArg();
+	if (floorf(num) > INT_MAX)
+		throw Base::MaxDataType();
+	_type = FLOAT;
 }
 
-bool	Base::isInt (void)
-{
-	long long	num;
-	int			i = -1;
+// void	Base::isDouble (void)
+// {
 	
-	if (arg[++i] == '+' || arg[i] == '-')
-		i++;
-	while (arg[i])
-	{
-		if (!isdigit(arg[i]))
-			return false;
-		i++;
-	}
-	std::stringstream(arg) >> num;
-	
-	if (num > INT_MAX || num < INT_MIN || arg.empty())
-		return false;
-	
-	return true;
-}
+// }
