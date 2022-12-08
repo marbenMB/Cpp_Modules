@@ -6,7 +6,7 @@
 /*   By: marouanebenbajja <marouanebenbajja@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:37 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/08 00:59:44 by marouaneben      ###   ########.fr       */
+/*   Updated: 2022/12/08 19:20:24 by marouaneben      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,14 @@ const char* Base::MaxDataType::what(void) const throw()
 	return "Limit For Data Type!!";
 }
 
+//	**********	Getters ********* :
+
+int		Base::getType (void) const { return _type; };
+double	Base::getValue (void) const { return _value; };
+int		Base::getSign (void) const { return _sign; };
+
+//	********** | ********* :
+
 void	Base::isNumeric (std::string arg)
 {
 	size_t idx = 0;
@@ -64,7 +72,10 @@ void	Base::isNan (void)
 
 	ss << str.c_str();
 	if (!arg.compare("-inf"))
+	{
 		_type = _INF;
+		_sign = 1;
+	}
 	else if (!arg.compare("+inf"))
 		_type = INF;
 	else if (!arg.compare("-inff"))
@@ -73,6 +84,7 @@ void	Base::isNan (void)
 		ss.clear();
 		ss << arg.erase(arg.length() - 1);
 		_type = _INFF;
+		_sign = 1;
 	}
 	else if (!arg.compare("+inff"))
 	{
@@ -197,10 +209,10 @@ std::ostream&	operator<< (std::ostream& out, Base const &obj)
 	//	CHAR :
 	c = static_cast <char>(obj.getValue());
 	out << "Char : ";
-	if (c < 32)
-		out << "Non Displayable";
-	else if (obj.getType() >= _NAN && obj.getType() <= INFF)
+	if (obj.getType() >= _NAN && obj.getType() <= INFF)
 		out	<< "Impossible";
+	else if (c < 32)
+		out << "Non Displayable";
 	else
 		out << c;
 	out << std::endl;
@@ -214,15 +226,18 @@ std::ostream&	operator<< (std::ostream& out, Base const &obj)
 		out << n;
 	out << std::endl;
 
+	if (obj.getSign())
+		out << std::showpos;
+
 	//	FLOAT :
 	fn = static_cast <float>(obj.getValue());
 	out << "Float : ";
-	out << fn <<"f";
+	out << std::fixed << std::setprecision(4) << fn <<"f";
 	out << std::endl;
 
 	// DOUBLE :
 	dn = static_cast <double>(obj.getValue());
-	out << "Double : "
+	out << "Double : " << std::fixed << std::setprecision(4)
 	<< dn << std::endl;
 	
 	return	out;
