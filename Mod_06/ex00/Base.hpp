@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marouanebenbajja <marouanebenbajja@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:41 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/07 21:53:08 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/08 00:51:40 by marouaneben      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 #include <iostream>
 #include <sstream>
-#include <climits>
 #include <exception>
+#include <iomanip>
+#include <climits>
 #include <cmath>
 #include <climits>
 
