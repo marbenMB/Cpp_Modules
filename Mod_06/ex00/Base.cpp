@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marouanebenbajja <marouanebenbajja@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:37 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/07 21:55:05 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/08 00:59:44 by marouaneben      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,7 +189,41 @@ void	Base::isChar (void)
 
 std::ostream&	operator<< (std::ostream& out, Base const &obj)
 {
-	//	CHAR : 
-	out << "Char : ";
+	char	c;
+	int		n;
+	float	fn;
+	double	dn;
 	
+	//	CHAR :
+	c = static_cast <char>(obj.getValue());
+	out << "Char : ";
+	if (c < 32)
+		out << "Non Displayable";
+	else if (obj.getType() >= _NAN && obj.getType() <= INFF)
+		out	<< "Impossible";
+	else
+		out << c;
+	out << std::endl;
+	
+	//	INT :
+	n = static_cast <int>(obj.getValue());
+	out << "Int : ";
+	if (obj.getType() >= _NAN && obj.getType() <= INFF)
+		out	<< "Impossible";
+	else
+		out << n;
+	out << std::endl;
+
+	//	FLOAT :
+	fn = static_cast <float>(obj.getValue());
+	out << "Float : ";
+	out << fn <<"f";
+	out << std::endl;
+
+	// DOUBLE :
+	dn = static_cast <double>(obj.getValue());
+	out << "Double : "
+	<< dn << std::endl;
+	
+	return	out;
 }
