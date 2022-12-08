@@ -3,20 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marouanebenbajja <marouanebenbajja@stud    +#+  +:+       +#+        */
+/*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:37 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/08 19:28:28 by marouaneben      ###   ########.fr       */
+/*   Updated: 2022/12/08 21:51:33 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
 
-// TODO : - Char > extended ASCII -> IMPOSSIBLE 
-// TODO : - INT OVERFLOW -> IMPOSSIBLE
-// TODO : - Sign is displayed in normal cases
-
-Base::Base() : _type(INIT), _sign(INIT), _dot(0), _valid(0) {}
+Base::Base() : _type(INIT), _sign(0), _dot(0), _valid(0), _prec(1) {}
 
 Base::~Base() {}
 
@@ -54,6 +50,7 @@ const char* Base::MaxDataType::what(void) const throw()
 int		Base::getType (void) const { return _type; };
 double	Base::getValue (void) const { return _value; };
 int		Base::getSign (void) const { return _sign; };
+int		Base::getPrec (void) const { return _prec; };
 
 //	********** | ********* :
 
@@ -162,6 +159,16 @@ double	Base::readArg (const char* arg)
 	return num;
 }
 
+void	Base::setPrec (std::string arg)
+{
+	std::string	afterDot;
+
+	afterDot = arg.substr(arg.find('.', 0) + 1);
+	_prec = afterDot.length();
+	if (_prec > 3)
+		_prec = 3;
+}
+
 void	Base::isFloat (void)
 {
 	double				num;
@@ -171,6 +178,7 @@ void	Base::isFloat (void)
 	num = readArg(str.c_str());
 	if (floor(num) > INT_MAX || floor(num) < INT_MIN)
 		throw Base::MaxDataType();
+	setPrec(str);
 	_value = num;
 	_type = FLOAT;
 }
@@ -181,6 +189,7 @@ void	Base::isDouble (void)
 	std::string			str(arg);
 
 	num = readArg(str.c_str());
+	setPrec(str);
 	_value = num;
 	_type = DOUBLE;
 }
@@ -213,7 +222,7 @@ std::ostream&	operator<< (std::ostream& out, Base const &obj)
 	//	CHAR :
 	c = static_cast <char>(obj.getValue());
 	out << "Char : ";
-	if (obj.getType() >= _NAN && obj.getType() <= INFF)
+	if ((obj.getType() >= _NAN && obj.getType() <= INFF) || obj.getValue() > 254)
 		out	<< "Impossible";
 	else if (c < 32)
 		out << "Non Displayable";
@@ -224,7 +233,7 @@ std::ostream&	operator<< (std::ostream& out, Base const &obj)
 	//	INT :
 	n = static_cast <int>(obj.getValue());
 	out << "Int : ";
-	if (obj.getType() >= _NAN && obj.getType() <= INFF)
+	if ((obj.getType() >= _NAN && obj.getType() <= INFF) || obj.getValue() > INT_MAX || obj.getValue() < INT_MIN)
 		out	<< "Impossible";
 	else
 		out << n;
@@ -236,12 +245,12 @@ std::ostream&	operator<< (std::ostream& out, Base const &obj)
 	//	FLOAT :
 	fn = static_cast <float>(obj.getValue());
 	out << "Float : ";
-	out << std::fixed << std::setprecision(4) << fn <<"f";
+	out << std::fixed << std::setprecision(obj.getPrec()) << fn <<"f";
 	out << std::endl;
 
 	// DOUBLE :
 	dn = static_cast <double>(obj.getValue());
-	out << "Double : " << std::fixed << std::setprecision(4)
+	out << "Double : " << std::fixed << std::setprecision(obj.getPrec())
 	<< dn << std::endl;
 	
 	return	out;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marouanebenbajja <marouanebenbajja@stud    +#+  +:+       +#+        */
+/*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:41 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/08 19:16:24 by marouaneben      ###   ########.fr       */
+/*   Updated: 2022/12/08 21:49:49 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ class	Base
 		int		getType (void) const;
 		double	getValue (void) const;
 		int		getSign (void) const;
+		int		getPrec (void) const;
+		void	setPrec (std::string arg);
 
 		double	readArg (const char* arg);
 		void	isNumeric (std::string arg);
@@ -76,6 +78,7 @@ class	Base
 		int		_dot;
 		double	_value;
 		bool	_valid;
+		int		_prec;
 };
 
 // ******************************************************** //
