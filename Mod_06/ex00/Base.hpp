@@ -6,7 +6,7 @@
 /*   By: marouanebenbajja <marouanebenbajja@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:41 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/08 00:51:40 by marouaneben      ###   ########.fr       */
+/*   Updated: 2022/12/08 19:16:24 by marouaneben      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,9 @@ class	Base
 			virtual const char*	what(void) const throw();
 		};
 
-		int		getType (void) const { return _type; };
-		double	getValue (void) const { return _value; };
+		int		getType (void) const;
+		double	getValue (void) const;
+		int		getSign (void) const;
 
 		double	readArg (const char* arg);
 		void	isNumeric (std::string arg);
