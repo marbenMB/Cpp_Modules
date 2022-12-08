@@ -6,11 +6,15 @@
 /*   By: marouanebenbajja <marouanebenbajja@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:37 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/08 19:20:24 by marouaneben      ###   ########.fr       */
+/*   Updated: 2022/12/08 19:28:28 by marouaneben      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
+
+// TODO : - Char > extended ASCII -> IMPOSSIBLE 
+// TODO : - INT OVERFLOW -> IMPOSSIBLE
+// TODO : - Sign is displayed in normal cases
 
 Base::Base() : _type(INIT), _sign(INIT), _dot(0), _valid(0) {}
 
