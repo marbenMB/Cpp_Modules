@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serialization.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/04 01:09:54 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/09 17:05:30 by mbenbajj         ###   ########.fr       */
+/*   Created: 2022/12/09 16:26:12 by mbenbajj          #+#    #+#             */
+/*   Updated: 2022/12/09 16:26:13 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#include "Serialization.hpp"
 
-int main(int ac, char **av)
+uintptr_t	serialize (Data* ptr)
 {
-	Base	convert;
+	uintptr_t	ser;
 
-	try {
-		if (ac != 2)
-			throw "Bad Arguments !!";
-		convert.arg = std::string(av[1]);
-		convert.parseArg();
-		std::cout << convert;
-	}
-	catch (const char* msg) {
-		std::cerr << msg << std::endl;
-	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
-	return (0);
+	ser = reinterpret_cast <uintptr_t>(ptr);
+	return ser;
+}
+
+Data*	deserialize (uintptr_t raw)
+{
+	Data	*_new;
+
+	_new = reinterpret_cast <Data*>(raw);
+	return _new;
 }

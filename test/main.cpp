@@ -6,10 +6,11 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:21:15 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/30 18:55:07 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/07 11:17:51 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <sstream>
 #include "header.hpp"
 
 // int	main()
@@ -29,9 +30,31 @@
 // 	return 0;
 // }
 
-int main()
+enum toto
 {
-	Test a;
-	a.setX(4);
-	std::cout << a.getX();
+	NUM = 4,
+	CHAR,
+	INT,
+	FLOAT
+
+};
+
+int main(int ac, char **av)
+{
+	if (ac != 2)
+		return 1;
+	std::string			arg(av[1]);
+	std::stringstream	ss;
+	double				num;
+
+	ss << arg;
+	ss >> num;
+	
+	std::cout << arg << std::endl;
+	if (ss.fail())
+		std::cout << "Failled" << std::endl;
+	else
+		std::cout << num << std::endl;
+
+	return 0;
 }

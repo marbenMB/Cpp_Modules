@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/04 01:09:56 by mbenbajj          #+#    #+#              #
-#    Updated: 2022/12/09 17:05:34 by mbenbajj         ###   ########.fr        #
+#    Created: 2022/12/09 16:26:03 by mbenbajj          #+#    #+#              #
+#    Updated: 2022/12/09 16:26:04 by mbenbajj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Base 
+NAME = ident 
 
 CXXFLAGS = -Wall -Wextra -Werror 
 

@@ -1,57 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.hpp                                         :+:      :+:    :+:   */
+/*   Serialization.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 01:05:12 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/11/30 18:55:41 by mbenbajj         ###   ########.fr       */
+/*   Created: 2022/12/09 16:26:14 by mbenbajj          #+#    #+#             */
+/*   Updated: 2022/12/09 16:26:15 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	_HEADER_HPP_
-#define _HEADER_HPP_
+#ifndef _Serialization_HPP_
+#define _Serialization_HPP_
 
-// ******************************************************** //
-//                         INCLUDES                        //
-// ****************************************************** //
 #include <iostream>
 
 // ******************************************************** //
 //                         CLASSES                         //
 // ****************************************************** //
 
-class	Vihecule
+struct Serialization
 {
-	public : 
-		Vihecule (int n) : _nbWheel(n) {}
-		virtual void	printChara(void){
-			std::cout << "Vehicule Wheels : " << _nbWheel << std::endl;
-		}
-		int		_nbWheel;
+	int		x;
+	double	y;
+	char	c;
 };
 
-class	Car : public Vihecule
-{
-	public	:
-		Car (int n) : Vihecule(n) {}
-		virtual void	printChara(void){
-			std::cout << "Car Wheels : " << _nbWheel << std::endl;
-		}
-};
+typedef	struct Serialization Data;
 
-class Test
-{
-	int const	x;
-	public : 
-		Test() : x(0) {};
-		int getX() {	return (x);	}
-};
 // ******************************************************** //
 //                        FUNCTIONS                        //
 // ****************************************************** //
 
-
+uintptr_t serialize(Data* ptr);
+Data* deserialize(uintptr_t raw);
 
 #endif

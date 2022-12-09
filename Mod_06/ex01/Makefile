@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/04 01:09:56 by mbenbajj          #+#    #+#              #
-#    Updated: 2022/12/09 17:05:34 by mbenbajj         ###   ########.fr        #
+#    Created: 2022/12/09 16:26:09 by mbenbajj          #+#    #+#              #
+#    Updated: 2022/12/09 16:26:10 by mbenbajj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Base 
+NAME = Serialization 
 
 CXXFLAGS = -Wall -Wextra -Werror 
 
@@ -18,9 +18,9 @@ CC = c++
 
 STD = -std=c++98 
 
-SRC = Base.cpp main.cpp 
+SRC = Serialization.cpp main.cpp 
 
-INC = Base.hpp 
+INC = Serialization.hpp 
 
 OBJ = $(SRC:.cpp=.o) 
 
