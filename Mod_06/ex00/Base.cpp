@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:37 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/08 21:51:33 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/09 01:00:52 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,7 +222,7 @@ std::ostream&	operator<< (std::ostream& out, Base const &obj)
 	//	CHAR :
 	c = static_cast <char>(obj.getValue());
 	out << "Char : ";
-	if ((obj.getType() >= _NAN && obj.getType() <= INFF) || obj.getValue() > 254)
+	if ((obj.getType() >= _NAN && obj.getType() <= INFF))
 		out	<< "Impossible";
 	else if (c < 32)
 		out << "Non Displayable";
