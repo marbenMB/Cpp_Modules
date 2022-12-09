@@ -2,13 +2,12 @@
 
 int	main()
 {
-	try {
-		Base	*inst = generate();
-		identify(inst);
-		identify(*inst);
-	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
+	Base	*inst = generate();
 
+	std::cout << std::endl << "<POINTER> :" << std::endl;
+	identify(inst);
+	std::cout << std::endl << "<REFERENCE> :" << std::endl;
+	identify(*inst);
+	delete inst;
+	return (0);
 }
