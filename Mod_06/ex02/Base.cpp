@@ -26,16 +26,16 @@ Base*	generate (void)
 		std::cout << "C : Created!" << std::endl;
 		return new C;
 	}
-	return nullptr;
+	return NULL;
 }
 
 void	identify (Base* p)
 {
-	if (dynamic_cast<A *>(p) != nullptr)
+	if (dynamic_cast<A *>(p) != NULL)
 		std::cout << "A : ";
-	if (dynamic_cast<B *>(p) != nullptr)
+	if (dynamic_cast<B *>(p) != NULL)
 		std::cout << "B : ";
-	if (dynamic_cast<C *>(p) != nullptr)
+	if (dynamic_cast<C *>(p) != NULL)
 		std::cout << "C : ";
 	std::cout << "Success ptr cast!" << std::endl;
 }
@@ -47,21 +47,21 @@ void	identify (Base& p)
 		std::cout << "A :";
 		tmp = dynamic_cast<A &>(p);
 		std::cout << " Success ref cast!" << std::endl;
-	} catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
+	} catch (std::bad_cast &e) {
+		std::cout << " Failed ref cast!" << std::endl;
 	}
 	try {
 		std::cout << "B :";
 		tmp = dynamic_cast<B &>(p);
 		std::cout << " Success ref cast!" << std::endl;
-	} catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
+	} catch (std::bad_cast &e) {
+		std::cout << " Failed ref cast!" << std::endl;
 	}
 	try {
 		std::cout << "C :";
 		tmp = dynamic_cast<C &>(p);
 		std::cout << " Success ref cast!" << std::endl;
-	} catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
+	} catch (std::bad_cast &e) {
+		std::cout << " Failed ref cast!" << std::endl;
 	}
 }
