@@ -6,7 +6,7 @@
 /*   By: marouanebenbajja <marouanebenbajja@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 01:09:54 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/07 23:18:12 by marouaneben      ###   ########.fr       */
+/*   Updated: 2022/12/09 05:04:07 by marouaneben      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ int main(int ac, char **av)
 		std::cout << convert;
 	}
 	catch (const char* msg) {
-		std::cout << msg << std::endl;
+		std::cerr << msg << std::endl;
 	}
 	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	return (0);
 }
