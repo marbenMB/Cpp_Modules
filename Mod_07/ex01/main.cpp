@@ -33,9 +33,12 @@ void	char_test (void)
 int main()
 {
 	//	You Code
-
-	int_test();
-	char_test();
+	try {
+		int_test();
+		char_test();
+	}	catch (const char* msg) {
+		std::cerr << msg << std::endl;
+	}
 	
 	std::cout << "******	MAR_BEN CREATION √	******" << std::endl;
 

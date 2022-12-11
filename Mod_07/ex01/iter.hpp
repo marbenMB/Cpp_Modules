@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marouanebenbajja <marouanebenbajja@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 02:00:35 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/11 02:24:42 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/11 02:33:10 by marouaneben      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 template <typename T>
 void	iter (T *arr, size_t len, void fun(T const &x))
 {
+	if (!fun)
+		throw "Null Function Ptr!!";
 	for (size_t i = 0; i < len; i++)
 	{
 		fun(arr[i]);
