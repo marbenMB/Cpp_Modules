@@ -32,17 +32,13 @@ void	swap (T &a, T &b)
 template <typename T>
 T	min (T fst, T snd)
 {
-	if (fst < snd)
-		return fst;
-	return snd;
+	return (fst < snd) ? fst : snd;
 }
 
 template <typename T>
 T	max (T fst, T snd)
 {
-	if (fst > snd)
-		return fst;
-	return snd;
+	return (fst > snd) ? fst : snd;
 }
 
 #endif
