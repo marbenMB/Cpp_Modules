@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Header.hpp                                         :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/10 18:13:23 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/11 02:24:57 by mbenbajj         ###   ########.fr       */
+/*   Created: 2022/12/11 02:00:35 by mbenbajj          #+#    #+#             */
+/*   Updated: 2022/12/11 02:24:42 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _HEADER_HPP_
-#define _HEADER_HPP_
+#ifndef _iter_HPP_
+#define _iter_HPP_
 
 #include <iostream>
 
@@ -20,29 +20,21 @@
 // ****************************************************** //
 
 template <typename T>
-void	swap (T &a, T &b)
+void	iter (T *arr, size_t len, void fun(T const &x))
 {
-	T	tmp;
-
-	tmp = a;
-	a = b;
-	b = tmp;
+	for (size_t i = 0; i < len; i++)
+	{
+		fun(arr[i]);
+	}
 }
 
 template <typename T>
-T	min (T fst, T snd)
+void	display (T const &x)
 {
-	if (fst < snd)
-		return fst;
-	return snd;
-}
-
-template <typename T>
-T	max (T fst, T snd)
-{
-	if (fst > snd)
-		return fst;
-	return snd;
+	T	var;
+	
+	var = x;
+	std::cout << var << std::endl;
 }
 
 #endif
