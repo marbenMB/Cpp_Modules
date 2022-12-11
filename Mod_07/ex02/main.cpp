@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 07:49:09 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/11 09:00:47 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/11 09:51:30 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,21 +65,21 @@
 
 void int_test()
 {
-	size_t		size = 15;
+	unsigned int		size = 15;
 	Array<int>	num(size);
 
 	srand(time(0));
-	for (size_t i = 0; i < size; i++)
+	for (unsigned int i = 0; i < size; i++)
 		num[i] = rand() % 20;
 	std::cout << "- Printing ORIGIN arr : " << std::endl;
-	for (size_t i = 0; i < size; i++)
+	for (unsigned int i = 0; i < size; i++)
 		std::cout << " " << num[i];
 	std::cout << std::endl;
 	
 	Array<int>	copy(num);
 	
 	std::cout << "- Printing COPY arr : " << std::endl;
-	for (size_t i = 0; i < copy.size(); i++)
+	for (unsigned int i = 0; i < copy.size(); i++)
 		std::cout << " " << copy[i];
 	std::cout << std::endl;
 
@@ -89,11 +89,11 @@ void int_test()
 
 void character_test()
 {
-	size_t		size = 15;
+	unsigned int		size = 15;
 	Array<char>	num(size);
 
 	srand(time(0));
-	for (size_t i = 0; i < size; i++)
+	for (unsigned int i = 0; i < size; i++)
 	{
 		int	val = rand() % 127;
 		if (val <= 32)
@@ -101,14 +101,14 @@ void character_test()
 		num[i] = static_cast<char>(val);
 	}
 	std::cout << "- Printing ORIGIN arr : " << std::endl;
-	for (size_t i = 0; i < size; i++)
+	for (unsigned int i = 0; i < size; i++)
 		std::cout << " " << num[i];
 	std::cout << std::endl;
 	
 	Array<char>	copy(num);
 	
 	std::cout << "- Printing COPY arr : " << std::endl;
-	for (size_t i = 0; i < copy.size(); i++)
+	for (unsigned int i = 0; i < copy.size(); i++)
 		std::cout << " " << copy[i];
 	std::cout << std::endl;
 
