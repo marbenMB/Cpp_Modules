@@ -62,7 +62,7 @@
 // }
 
 int main( void ) {
-	int a = 2;
+	int a = -9;
 	int b = 3;
 
 	::swap( a, b );
