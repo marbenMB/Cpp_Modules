@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/10 19:47:50 by mbenbajj          #+#    #+#              #
-#    Updated: 2022/12/10 19:47:51 by mbenbajj         ###   ########.fr        #
+#    Created: 2022/12/11 02:24:47 by mbenbajj          #+#    #+#              #
+#    Updated: 2022/12/11 02:24:48 by mbenbajj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Template 
+NAME = iter 
 
 CXXFLAGS = -Wall -Wextra -Werror 
 
@@ -20,7 +20,7 @@ STD = -std=c++98
 
 SRC = main.cpp 
 
-INC = Header.hpp 
+INC = iter.hpp 
 
 OBJ = $(SRC:.cpp=.o) 
 
