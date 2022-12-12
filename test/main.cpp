@@ -3,58 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marouanebenbajja <marouanebenbajja@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:21:15 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/07 11:17:51 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2022/12/12 01:37:09 by marouaneben      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sstream>
+
 #include "header.hpp"
+#include <vector>
 
-// int	main()
-// {
-// 	int	x = -1;
-// 	try	{
-// 		if (x < 0)
-// 			throw x;
-// 	}
-// 	catch (int var) {
-// 		std::cout << "x is small" << std::endl;
-// 	}
-// 	catch (char *msg) {
-// 		std::cout << msg << std::endl;
-// 	}
-// 	std::cout << "Hello World ! how are you" << std::endl;
-// 	return 0;
-// }
-
-enum toto
+int main()
 {
-	NUM = 4,
-	CHAR,
-	INT,
-	FLOAT
-
-};
-
-int main(int ac, char **av)
-{
-	if (ac != 2)
-		return 1;
-	std::string			arg(av[1]);
-	std::stringstream	ss;
-	double				num;
-
-	ss << arg;
-	ss >> num;
+	std::vector<int> vec(4);
+	std::vector<int>::iterator	idx;
 	
-	std::cout << arg << std::endl;
-	if (ss.fail())
-		std::cout << "Failled" << std::endl;
-	else
-		std::cout << num << std::endl;
-
-	return 0;
+	srand(time(0));
+	for (int i = 0; i < 4; i++)
+	{
+		int val = rand() % -20;
+		std::cout << val << " ";
+		vec.push_back(val);
+	}
+	std::cout << "helll" << std::endl;
+	for (idx = vec.begin(); idx != vec.end(); idx++)
+		std::cout << *idx << " ";
+	std::cout << std::endl;
 }
