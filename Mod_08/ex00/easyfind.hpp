@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marouanebenbajja <marouanebenbajja@stud    +#+  +:+       +#+        */
+/*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 17:33:19 by marouaneben       #+#    #+#             */
-/*   Updated: 2022/12/12 17:33:20 by marouaneben      ###   ########.fr       */
+/*   Updated: 2022/12/12 18:15:54 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,17 @@
 // ******************************************************** //
 //                         INCLUDE                         //
 // ****************************************************** //
-#ifndef _TPP_
 
 #include <iostream>
-
-#endif
+#include <vector>
 
 // ******************************************************** //
 //                        TEMPLATES                        //
 // ****************************************************** //
 
 template <typename T>
-int	easyfind (T container, int find)
-{
-	T::iterator	idx;
+int	easyfind (T container, int toFind);
 
-	
-}
+#include "easyfind.tpp"
 
 #endif

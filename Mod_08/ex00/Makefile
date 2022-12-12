@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marouanebenbajja <marouanebenbajja@stud    +#+  +:+       +#+         #
+#    By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/12 17:33:40 by marouaneben       #+#    #+#              #
-#    Updated: 2022/12/12 17:33:41 by marouaneben      ###   ########.fr        #
+#    Updated: 2022/12/12 17:39:57 by mbenbajj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,9 @@ CC = c++
 
 STD = -std=c++98 
 
-SRC = easyfind.tpp main.cpp 
+SRC = main.cpp 
 
-INC = easyfind.hpp 
+INC = easyfind.hpp easyfind.tpp
 
 OBJ = $(SRC:.cpp=.o) 
 
