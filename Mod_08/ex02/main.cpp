@@ -5,40 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 20:21:15 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/12 22:34:56 by mbenbajj         ###   ########.fr       */
+/*   Created: 2022/12/13 16:32:36 by mbenbajj          #+#    #+#             */
+/*   Updated: 2022/12/13 16:47:17 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "header.hpp"
-#include <vector>
+#include "MutantStack.hpp"
 
 int main()
 {
-	std::vector<int> vec(4);
-	std::vector<int> tmp;
-	std::vector<int>::iterator	idx;
+	MutantStack<int> mstack;
+	mstack.push(5);
+	mstack.push(17);
 	
-	srand(time(0));
-	for (int i = 0; i < 4; i++)
+	std::cout << mstack.top() << std::endl;
+	
+	mstack.pop();
+	
+	std::cout << mstack.size() << std::endl;
+
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	//[...]
+	mstack.push(0);
+	
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	
+	++it;
+	--it;
+	while (it != ite)
 	{
-		int val = rand() % -20;
-		vec.push_back(val);
+		std::cout << *it << std::endl;
+		++it;
 	}
-	
-	for (idx = vec.begin(); idx != vec.end(); idx++)
-		std::cout << *idx << " ";
-	std::cout << std::endl;
-	
-	tmp = vec;
-	std::sort (tmp.begin(), tmp.end());
-
-	for (idx = vec.begin(); idx != vec.end(); idx++)
-		std::cout << *idx << " ";
-	std::cout << std::endl;
-
-	for (idx = tmp.begin(); idx != tmp.end(); idx++)
-		std::cout << *idx << " ";
-	std::cout << std::endl;
+	std::stack<int> s(mstack);
+	return 0;
 }

@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/12 17:33:40 by marouaneben       #+#    #+#              #
-#    Updated: 2022/12/13 19:39:45 by mbenbajj         ###   ########.fr        #
+#    Created: 2022/12/12 21:37:23 by mbenbajj          #+#    #+#              #
+#    Updated: 2022/12/12 21:37:24 by mbenbajj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = easyfind 
+NAME = Span 
 
 CXXFLAGS = -Wall -Wextra -Werror 
 
@@ -18,9 +18,9 @@ CC = c++
 
 STD = -std=c++98 
 
-SRC = main.cpp 
+SRC = Span.cpp main.cpp 
 
-INC = easyfind.hpp easyfind.tpp
+INC = Span.hpp 
 
 OBJ = $(SRC:.cpp=.o) 
 

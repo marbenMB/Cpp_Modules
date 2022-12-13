@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/12 17:33:40 by marouaneben       #+#    #+#              #
-#    Updated: 2022/12/13 19:39:45 by mbenbajj         ###   ########.fr        #
+#    Created: 2022/12/13 16:32:33 by mbenbajj          #+#    #+#              #
+#    Updated: 2022/12/13 16:47:27 by mbenbajj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = easyfind 
+NAME = MutantStack 
 
 CXXFLAGS = -Wall -Wextra -Werror 
 
@@ -20,7 +20,7 @@ STD = -std=c++98
 
 SRC = main.cpp 
 
-INC = easyfind.hpp easyfind.tpp
+INC = MutantStack.hpp 
 
 OBJ = $(SRC:.cpp=.o) 
 
