@@ -1,4 +1,4 @@
-NAME = BitcoinExchange 
+NAME = btc
 
 CXXFLAGS = -Wall -Wextra -Werror 
 

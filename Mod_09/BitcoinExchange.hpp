@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <map>
 
 
 
@@ -32,14 +33,17 @@ class	BitcoinExchange
 		BitcoinExchange &operator= (const BitcoinExchange &obj);
 
 		static void	printError(std::string msg, std::string arg);
-		void		stockDB(void) const;
+		void		stockDB(void);
 
 	private	:
 		std::string	_fileName;
+		std::map<std::string, float>	_DB;
 };
 
 // ******************************************************** //
 //                        FUNCTIONS                        //
 // ****************************************************** //
+
+std::ifstream	openFile(std::string path);
 
 #endif
