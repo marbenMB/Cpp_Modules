@@ -13,6 +13,7 @@ int main(int ac, char **av)
 
 		try {
 			exChanger.stockDB();
+			exChanger.processInput();
 		}	catch (std::exception &e) {
 			return 1;
 		}
