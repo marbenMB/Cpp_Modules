@@ -185,5 +185,6 @@ bool	checkDate (std::string &date)
 
 bool	checkLeapYear (int yy)
 {
-	
+	(void)yy;
+	return true;	
 }
