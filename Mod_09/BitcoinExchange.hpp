@@ -9,13 +9,15 @@
 
 
 //**	MACRO DEF	**//
-#define	DB_PATH	"data.csv"
+#define	DB_PATH		"data.csv"
+#define	MAX_PRICE	1000
+#define	MIN_PRICE	0
 //**	ERROR MSG	**//
-#define	E_FILE	"Could Not Open File."
-#define E_NPOS	"Not A Positive Number."
-#define E_INPUT	"Bad Input => "
-#define	E_MAX	"Too Large Number."
-#define NO_ARG	""
+#define	E_FILE		"Could Not Open File."
+#define E_NPOS		"Not A Positive Number."
+#define E_INPUT		"Bad Input => "
+#define	E_MAX		"Too Large Number."
+#define NO_ARG		""
 //**	*********	**//
 
 
@@ -34,6 +36,7 @@ class	BitcoinExchange
 
 		static void	printError(std::string msg, std::string arg);
 		void		stockDB(void);
+		void		processInput(void);
 
 	private	:
 		std::string	_fileName;
@@ -44,6 +47,8 @@ class	BitcoinExchange
 //                        FUNCTIONS                        //
 // ****************************************************** //
 
-std::ifstream	openFile(std::string path);
+bool	checkPipe(std::string line);
+bool	checkDate(std::string &date);
+bool	checkLeapYear(int yy);
 
 #endif

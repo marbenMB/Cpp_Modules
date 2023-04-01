@@ -6,39 +6,37 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:21:15 by mbenbajj          #+#    #+#             */
-/*   Updated: 2022/12/12 22:34:56 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2023/03/31 20:57:23 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "header.hpp"
-#include <vector>
+#include <map>
 
 int main()
 {
-	std::vector<int> vec(4);
-	std::vector<int> tmp;
-	std::vector<int>::iterator	idx;
+	std::map<std::string, int> m;
+	std::map<std::string, int>::iterator low;
+	std::map<std::string, int>::iterator up;
+	std::string	find("5");
 	
-	srand(time(0));
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 10; i++)
 	{
-		int val = rand() % -20;
-		vec.push_back(val);
+		if (i == 5)
+			continue;
+		m.insert(std::make_pair(std::to_string(i), i));
+		std::cout << "- " << i << " -> " << i << std::endl;
 	}
-	
-	for (idx = vec.begin(); idx != vec.end(); idx++)
-		std::cout << *idx << " ";
-	std::cout << std::endl;
-	
-	tmp = vec;
-	std::sort (tmp.begin(), tmp.end());
+	std::cout << "--------------------" << std::endl;
+	std::cout << "        " << find << "     " << std::endl;
+	std::cout << "--------------------" << std::endl;
 
-	for (idx = vec.begin(); idx != vec.end(); idx++)
-		std::cout << *idx << " ";
-	std::cout << std::endl;
+	low = m.lower_bound(find);
+	up = m.upper_bound(find);
 
-	for (idx = tmp.begin(); idx != tmp.end(); idx++)
-		std::cout << *idx << " ";
-	std::cout << std::endl;
+	if (low->first != find)
+		low--;
+	std::cout << "- Low : " << low->first << " : " << low->second << std::endl; 
+	std::cout << "- Up : " << up->first << " : " << up->second << std::endl; 
 }
