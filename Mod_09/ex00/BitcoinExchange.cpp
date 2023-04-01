@@ -64,6 +64,7 @@ void	BitcoinExchange::processInput (void)
 	std::string		date;
 	float			price;
 	float			convert;
+	std::map<std::string, float>::iterator	it;
 
 	input.open(_fileName, std::ios_base::in);
 	if (!input.is_open())
@@ -113,9 +114,11 @@ void	BitcoinExchange::processInput (void)
 			}
 			else
 			{
-				convert = (_DB[date] * price);
+				it = _DB.lower_bound(date);
+				if (it != _DB.begin() && it->first != date)
+					it--;
+				convert = (it->second * price);
 				std::cout << date << " => " << price << " = " << convert << std::endl;
-				std::cout << "----" << std::endl;
 			}
 		}
 		else
@@ -152,6 +155,7 @@ bool	checkDate (std::string &date)
 	int		yy;
 	int		mm;
 	int		dd;
+	bool	leap;
 
 	do
 	{
@@ -161,6 +165,7 @@ bool	checkDate (std::string &date)
 			//?:	Store Year Date :
 			year = date.substr(0, nFind);
 			yy = std::atoi(year.c_str());
+			leap = checkLeapYear(yy);
 		}
 		else if (n_n == 1)
 		{	//?:	Store Month Date :
@@ -173,11 +178,20 @@ bool	checkDate (std::string &date)
 		}
 		else
 		{
-			std::cout << yy << " | " << mm << " | " << dd << std::endl;
+			if (yy < 1)
+				return true;
+			if (mm > 12 || mm < 1 || dd < 1 || dd > 31)
+				return true;
+			if (!leap && mm == 2 && dd > 28)
+				return true;
+			if (!((mm % 2 != 0 && mm <= 5) || (mm % 2 == 0 && mm > 5)))
+				if (dd > 30)
+					return true;
 		}
 
 		n_n++;
-	} while (nFind != std::string::npos);
+	} while (nFind != std::string::npos && n_n <= 3);
+
 	if (n_n != 3)
 		return true;
 	return false;
@@ -185,6 +199,7 @@ bool	checkDate (std::string &date)
 
 bool	checkLeapYear (int yy)
 {
-	(void)yy;
-	return true;	
+	if (yy % 4 == 0 || (yy % 100 == 0 && yy % 400 == 0))
+		return true;
+	return false;
 }

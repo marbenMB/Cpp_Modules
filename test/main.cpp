@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marouanebenbajja <marouanebenbajja@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:21:15 by mbenbajj          #+#    #+#             */
-/*   Updated: 2023/03/31 20:57:23 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2023/04/01 16:51:35 by marouaneben      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,22 @@ int main()
 	std::map<std::string, int> m;
 	std::map<std::string, int>::iterator low;
 	std::map<std::string, int>::iterator up;
-	std::string	find("5");
+	std::string	find("1t");
+	std::string	key;
+	int		c = 122;
+	char	f;
 	
 	for (int i = 0; i < 10; i++)
 	{
 		if (i == 5)
 			continue;
-		m.insert(std::make_pair(std::to_string(i), i));
-		std::cout << "- " << i << " -> " << i << std::endl;
+		key = std::to_string(i);
+		f = static_cast <char>(c);
+		key += f;
+		m.insert(std::make_pair(key , i));
+		c--;
+		std::cout << key << std::endl;
+		std::cout << "- " << key << " -> " << i << std::endl;
 	}
 	std::cout << "--------------------" << std::endl;
 	std::cout << "        " << find << "     " << std::endl;
