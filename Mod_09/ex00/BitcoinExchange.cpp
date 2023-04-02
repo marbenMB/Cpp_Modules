@@ -21,6 +21,7 @@ BitcoinExchange	&BitcoinExchange::operator= (const BitcoinExchange &obj)
 	if (this != &obj)
 	{
 		_fileName = obj._fileName;
+		_DB = obj._DB;
 	}
 	return (*this);
 }
