@@ -49,6 +49,8 @@ class	BitcoinExchange
 
 bool	checkPipe(std::string line);
 bool	checkDate(std::string &date);
+bool	checkIsNum(std::string strNum);
 bool	checkLeapYear(int yy);
+bool	checkPrice(std::string price);
 
 #endif
