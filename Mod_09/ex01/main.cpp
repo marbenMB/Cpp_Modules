@@ -1,10 +1,20 @@
 #include "RPN.hpp"
 
-int main()
+int main(int ac, char **av)
 {
-	//	You Code
-
-	std::cout << "******	MAR_BEN CREATION √	******" << std::endl;
+	if (ac != 2)
+	{
+		std::cerr << "Bad Input!!" << std::endl;
+		return 1;
+	}
+	try {
+		RPN clac(av[1]);
+		std::cout << clac << std::endl;
+	}	catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+		return 1;
+	}
 
 	return (0);
 }
