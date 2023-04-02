@@ -62,6 +62,7 @@ void	BitcoinExchange::processInput (void)
 	std::string		line;
 	size_t			nFind;
 	std::string		date;
+	std::string		strPrice;
 	float			price;
 	float			convert;
 	std::map<std::string, float>::iterator	it;
@@ -75,10 +76,8 @@ void	BitcoinExchange::processInput (void)
 
 	std::getline(input, line);
 	if (line != "date | value")
-	{
-		BitcoinExchange::printError("Bad Format!!", NO_ARG);
-		throw std::runtime_error("");
-	}
+		BitcoinExchange::printError(E_INPUT, line);
+
 	while (std::getline(input, line))
 	{
 
@@ -101,7 +100,13 @@ void	BitcoinExchange::processInput (void)
 			}
 
 			//?:	Getting Price - Then Printing OutPut:
-			price = atof(line.substr(nFind + 2, line.length() - (nFind + 1)).c_str());
+			strPrice = line.substr(nFind + 2, line.length() - (nFind + 1));
+			if (checkPrice(strPrice))
+			{
+				BitcoinExchange::printError(E_INPUT, line);
+				continue;
+			}
+			price = atof(strPrice.c_str());
 			if (price > MAX_PRICE)
 			{
 				BitcoinExchange::printError(E_MAX, NO_ARG);
@@ -117,6 +122,7 @@ void	BitcoinExchange::processInput (void)
 				it = _DB.lower_bound(date);
 				if (it != _DB.begin() && it->first != date)
 					it--;
+				// std::cout << "--------\n" << it->first << " : " << it->second << std::endl << "--------\n";
 				convert = (it->second * price);
 				std::cout << date << " => " << price << " = " << convert << std::endl;
 			}
@@ -164,16 +170,23 @@ bool	checkDate (std::string &date)
 		{
 			//?:	Store Year Date :
 			year = date.substr(0, nFind);
+			if (year.length() != 4 || checkIsNum(year))
+				return true;
 			yy = std::atoi(year.c_str());
 			leap = checkLeapYear(yy);
 		}
 		else if (n_n == 1)
-		{	//?:	Store Month Date :
-			month = date.substr(year.length() + 1, nFind);
+		{	
+			//?:	Store Month Date :
+			month = date.substr(year.length() + 1, date.length() - (nFind + 1));
+			if (month.length() != 2 || checkIsNum(month))
+				return true;
 			mm = std::atoi(month.c_str());
 
 			//?:	Store Day Date :
 			day = date.substr(nFind + 1, date.length() - nFind);
+			if (day.length() != 2 || checkIsNum(day))
+				return true;
 			dd = std::atoi(day.c_str());
 		}
 		else
@@ -197,9 +210,35 @@ bool	checkDate (std::string &date)
 	return false;
 }
 
+bool	checkIsNum (std::string strNum)
+{
+	for (int i = 0; i < (int)strNum.length(); i++)
+		if (!std::isdigit(strNum[i]))
+			return true;
+	return false;
+}
+
 bool	checkLeapYear (int yy)
 {
 	if (yy % 4 == 0 || (yy % 100 == 0 && yy % 400 == 0))
 		return true;
+	return false;
+}
+
+bool	checkPrice (std::string price)
+{
+	size_t	nFind;
+
+	nFind = price.find('.');
+	if (nFind == 0 || nFind == (price.length() - 1))
+		return true;
+	if (nFind != std::string::npos)
+	{
+		if (checkIsNum(price.substr(0, nFind)) || checkIsNum(price.substr(nFind + 1, price.length() - nFind)))
+			return true;
+	}
+	else
+		if (checkIsNum(price))
+			return true;
 	return false;
 }
