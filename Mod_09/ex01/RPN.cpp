@@ -53,6 +53,8 @@ RPN::RPN (char *tab)
 		}
 		i++;
 	}
+	if (_DB.size() != 1)
+		throw	std::runtime_error("Error!!");
 }
 
 RPN::~RPN()
