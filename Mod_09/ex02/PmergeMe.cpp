@@ -11,10 +11,8 @@ PmergeMe::PmergeMe(int ac, char **tab)
 		if (!checkIsNum(tab[i]))
 			throw	std::runtime_error("Bad Argument!!!");
 		else
-			_vecDB.push_back(std::atoi(tab[i]));
+			_DB.push_back(std::atoi(tab[i]));
 	}
-	for (std::vector<int>::iterator it = _vecDB.begin(); it != _vecDB.end(); it++)
-		_deqDB.push_back(*it);
 	std::cout << std::endl;
 }
 
@@ -36,6 +34,18 @@ PmergeMe	&PmergeMe::operator= (const PmergeMe &obj)
 		_deqDB = obj._deqDB;
 	}
 	return (*this);
+}
+
+void	PmergeMe::fillVec (void)
+{
+	for (std::vector<int>::iterator it = _DB.begin(); it != _DB.end(); it++)
+		_vecDB.push_back(*it);
+}
+
+void	PmergeMe::fillDeq (void)
+{
+	for (std::vector<int>::iterator it = _DB.begin(); it != _DB.end(); it++)
+		_deqDB.push_back(*it);
 }
 
 //*:	****	**************	****	:*//
@@ -208,29 +218,31 @@ void	PmergeMe::sortVec (void)
 {
 	long long	now = ft_gettime();
 
+	fillVec();
 	_vecDBsorted = mergeSortVec(_vecDB);
 
-	_vecTime = (ft_gettime() - now) ;/// 1000;
+	_vecTime = (ft_gettime() - now) / 1000.0;
 
 	// std::cout << "+> Sequence : " << std::endl;
 	// printDB(_vecDB);
 	// std::cout << "+> Sorted Sequence : " << std::endl;
 	// printDB(_vecDBsorted);
-	std::cout << "Time to Sort Vector : " << std::fixed << std::setprecision(5) << _vecTime << " us" << std::endl;
+	std::cout << "Time to process " << _vecDB.size() << " element with std::vector : " << std::fixed << std::setprecision(5) << _vecTime << " us" << std::endl;
 }
 
 void	PmergeMe::sortDeq (void)
 {
 	long long	now = ft_gettime();
 
+	fillDeq();
 	_deqDBsorted = mergeSortDeq(_deqDB);
-	_deqTime = (ft_gettime() - now) ;/// 1000;
+	_deqTime = (ft_gettime() - now) / 1000.0;
 
 	// std::cout << "+> Sequence : " << std::endl;
 	// printDB(_deqDB);
 	// std::cout << "+> Sorted Sequence : " << std::endl;
 	// printDB(_deqDBsorted);
-	std::cout << "Time to Sort deque : " << std::fixed << std::setprecision(5) << _deqTime << " us" << std::endl;
+	std::cout << "Time to process " << _deqDB.size() << " element with std::deque : " << std::fixed << std::setprecision(5) << _deqTime << " us" << std::endl;
 }
 
 //?:	----	FUNCTIONS	----	:?//

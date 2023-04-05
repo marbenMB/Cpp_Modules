@@ -24,6 +24,8 @@ class	PmergeMe
 		std::vector<int>	mergeSortVec(std::vector<int> vec);
 		std::vector<int>	mergeVec(std::vector<int> a, std::vector<int> b);
 
+		void				fillVec(void);
+		void				fillDeq(void);
 		void				sortVec(void);
 		void				sortDeq(void);
 
@@ -32,6 +34,7 @@ class	PmergeMe
 		std::deque<int>		mergeDeq(std::deque<int> a, std::deque<int> b);
 	
 	private :
+		std::vector<int>	_DB;
 		std::vector<int>	_vecDB;
 		std::vector<int>	_vecDBsorted;
 		double			_vecTime;
