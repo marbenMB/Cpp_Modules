@@ -220,13 +220,12 @@ void	PmergeMe::sortVec (void)
 
 	fillVec();
 	_vecDBsorted = mergeSortVec(_vecDB);
-
 	_vecTime = (ft_gettime() - now) / 1000.0;
 
-	// std::cout << "+> Sequence : " << std::endl;
-	// printDB(_vecDB);
-	// std::cout << "+> Sorted Sequence : " << std::endl;
-	// printDB(_vecDBsorted);
+	std::cout << "+> Before : ";
+	printDB(_vecDB);
+	std::cout << "+> After : ";
+	printDB(_vecDBsorted);
 	std::cout << "Time to process " << _vecDB.size() << " element with std::vector : " << std::fixed << std::setprecision(5) << _vecTime << " us" << std::endl;
 }
 
@@ -238,10 +237,6 @@ void	PmergeMe::sortDeq (void)
 	_deqDBsorted = mergeSortDeq(_deqDB);
 	_deqTime = (ft_gettime() - now) / 1000.0;
 
-	// std::cout << "+> Sequence : " << std::endl;
-	// printDB(_deqDB);
-	// std::cout << "+> Sorted Sequence : " << std::endl;
-	// printDB(_deqDBsorted);
 	std::cout << "Time to process " << _deqDB.size() << " element with std::deque : " << std::fixed << std::setprecision(5) << _deqTime << " us" << std::endl;
 }
 
