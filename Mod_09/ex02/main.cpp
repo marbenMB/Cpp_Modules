@@ -10,7 +10,6 @@ int main(int ac, char **av)
 	try {
 		PmergeMe	sort(ac - 1, &av[1]);
 
-		std::cout << "Good Args √" << std::endl;
 		sort.sortVec();
 		sort.sortDeq();
 		

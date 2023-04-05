@@ -57,7 +57,7 @@ void	printDB (T DB)
 {
 	for (typename T::iterator it = DB.begin(); it != DB.end(); it++)
 	{
-		std::cout << " | " << *it;
+		std::cout << " " << *it;
 	}
 	std::cout << std::endl;
 }
