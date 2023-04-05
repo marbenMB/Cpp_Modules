@@ -6,7 +6,7 @@
 /*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:21:15 by mbenbajj          #+#    #+#             */
-/*   Updated: 2023/04/04 21:18:51 by mbenbajj         ###   ########.fr       */
+/*   Updated: 2023/04/05 21:22:45 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,19 @@
 // 	std::cout << "- Low : " << low->first << " : " << low->second << std::endl; 
 // 	std::cout << "- Up : " << up->first << " : " << up->second << std::endl; 
 // }
+#include <ctime>
 
-int main()
-{
-	std::vector<int>	vec;
-	std::vector<int>::iterator it;
+int main() {
+    std::clock_t start = std::clock();
 
-	vec.push_back(1);
-	vec.push_back(2);
-	it = vec.begin() + 1;
+    // Code section to measure time for
+    for (int i = 0; i < 1000000; i++) {
+        // Do some work here
+    }
 
-	if (it != vec.end())
-		std::cout << it - vec.begin() << std::endl;
+    std::clock_t end = std::clock();
+    double elapsed_secs = double(end - start) / CLOCKS_PER_SEC;
+
+    std::cout << "Time taken: " << elapsed_secs << " seconds" << std::endl;
+    return 0;
 }

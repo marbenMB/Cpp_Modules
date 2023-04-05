@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include <sys/time.h>
+#include <ctime>
 #include <vector>
 #include <deque>
 
@@ -50,7 +51,6 @@ class	PmergeMe
 
 bool	checkIsNum (std::string strNum);
 void	swapVal (int &a, int &b);
-long long	ft_gettime(void);
 
 template <typename T>
 void	printDB (T DB)
