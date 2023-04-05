@@ -27,7 +27,7 @@ class	PmergeMe
 		void				sortVec(void);
 		void				sortDeq(void);
 
-		std::deque<int>		insertSortDeq(std::deque<int> &deq);
+		void				insertSortDeq(std::deque<int> &deq);
 		std::deque<int>		mergeSortDeq(std::deque<int> deq);
 		std::deque<int>		mergeDeq(std::deque<int> a, std::deque<int> b);
 	

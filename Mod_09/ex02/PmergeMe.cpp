@@ -38,6 +38,10 @@ PmergeMe	&PmergeMe::operator= (const PmergeMe &obj)
 	return (*this);
 }
 
+//*:	****	**************	****	:*//
+//*:	****	VECTOR SROTING	****	:*//
+//*:	****	**************	****	:*//
+
 void	PmergeMe::insertSortVec (std::vector<int> &vec)
 {
 	int	j;
@@ -117,6 +121,89 @@ std::vector<int>	PmergeMe::mergeVec (std::vector<int> a, std::vector<int> b)
 	return c;
 }
 
+//*:	****	**************	****	:*//
+//*:	****	DEQUE SROTING	****	:*//
+//*:	****	**************	****	:*//
+
+void	PmergeMe::insertSortDeq (std::deque<int> &deq)
+{
+	int	j;
+
+	for (int i = 0; i < (int)deq.size(); i++)
+	{
+		j = i;
+		while (j > 0 && deq[j - 1] > deq[j])
+			swapVal(deq[j - 1], deq[j]);
+		j--;
+	}
+}
+
+std::deque<int>	PmergeMe::mergeSortDeq (std::deque<int> deq)
+{
+	if (deq.size() <= 5)
+	{
+		insertSortDeq(deq);
+		return deq;
+	}
+	std::deque<int>	a;
+	std::deque<int>	b;
+	int					idx = 0;
+
+	for (std::deque<int>::iterator it = deq.begin(); it != deq.end(); it++)
+	{
+		if (idx < (int)(deq.size() / 2))
+			a.push_back(*it);
+		else
+			b.push_back(*it);
+		idx++;
+	}
+
+	a = mergeSortDeq(a);
+	b = mergeSortDeq(b);
+
+	return mergeDeq(a, b);
+}
+
+std::deque<int>	PmergeMe::mergeDeq (std::deque<int> a, std::deque<int> b)
+{
+	std::deque<int>	c;
+	std::deque<int>::iterator at, bt;
+
+	at = a.begin();
+	bt = b.begin();
+
+	while (at != a.end() && bt != b.end())
+	{
+		if (*at < *bt)
+		{
+			c.push_back(*at);
+			a.pop_front();
+		}
+		else
+		{
+			c.push_back(*bt);
+			b.pop_front();
+		}
+		at = a.begin();
+		bt = b.begin();
+	}
+
+	while (at != a.end()) 
+	{
+		c.push_back(*at);
+		a.pop_front();
+		at = a.begin();
+	}
+	
+	while (bt != b.end()) 
+	{
+		c.push_back(*bt);
+		b.pop_front();
+		bt = b.begin();
+	}
+	return c;
+}
+
 void	PmergeMe::sortVec (void)
 {
 	long long	now = ft_gettime();
@@ -125,13 +212,26 @@ void	PmergeMe::sortVec (void)
 
 	_vecTime = (ft_gettime() - now) / 1000;
 
-	std::cout << "+> Sequence : " << std::endl;
-	printDB(_vecDB);
-	std::cout << "+> Sorted Sequence : " << std::endl;
-	printDB(_vecDBsorted);
-	std::cout << "Time to Sort : " << std::fixed << std::setprecision(4) << _vecTime << " us" << std::endl;
+	// std::cout << "+> Sequence : " << std::endl;
+	// printDB(_vecDB);
+	// std::cout << "+> Sorted Sequence : " << std::endl;
+	// printDB(_vecDBsorted);
+	std::cout << "Time to Sort Vector : " << std::fixed << std::setprecision(5) << _vecTime << " us" << std::endl;
 }
 
+void	PmergeMe::sortDeq (void)
+{
+	long long	now = ft_gettime();
+
+	_deqDBsorted = mergeSortDeq(_deqDB);
+	_deqTime = (ft_gettime() - now) / 1000;
+
+	// std::cout << "+> Sequence : " << std::endl;
+	// printDB(_deqDB);
+	// std::cout << "+> Sorted Sequence : " << std::endl;
+	// printDB(_deqDBsorted);
+	std::cout << "Time to Sort deque : " << std::fixed << std::setprecision(5) << _deqTime << " us" << std::endl;
+}
 
 //?:	----	FUNCTIONS	----	:?//
 
