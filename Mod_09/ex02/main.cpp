@@ -12,6 +12,7 @@ int main(int ac, char **av)
 
 		std::cout << "Good Args √" << std::endl;
 		sort.sortVec();
+		sort.sortDeq();
 		
 	}	catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
