@@ -11,12 +11,10 @@ int main(int ac, char **av)
 		PmergeMe	sort(ac - 1, &av[1]);
 
 		std::cout << "Good Args √" << std::endl;
+		sort.sortVec();
 		
 	}	catch (std::exception &e) {
 		std::cerr << e.what() << std::endl;
 	}
-
-	std::cout << "******	MAR_BEN CREATION √	******" << std::endl;
-
 	return (0);
 }

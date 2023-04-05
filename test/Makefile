@@ -6,7 +6,7 @@
 #    By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/13 01:03:13 by mbenbajj          #+#    #+#              #
-#    Updated: 2022/11/13 01:05:01 by mbenbajj         ###   ########.fr        #
+#    Updated: 2023/04/04 21:13:42 by mbenbajj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC = main.cpp
 
 INC = header.hpp
 
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 CC = c++
 
