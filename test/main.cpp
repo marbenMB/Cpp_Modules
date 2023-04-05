@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marouanebenbajja <marouanebenbajja@stud    +#+  +:+       +#+        */
+/*   By: mbenbajj <mbenbajj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:21:15 by mbenbajj          #+#    #+#             */
-/*   Updated: 2023/04/02 00:43:16 by marouaneben      ###   ########.fr       */
+/*   Updated: 2023/04/04 21:18:51 by mbenbajj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "header.hpp"
 #include <map>
+#include <vector>
+#include <deque>
 
 // int main()
 // {
@@ -51,7 +53,13 @@
 
 int main()
 {
-	char	c = '9';
+	std::vector<int>	vec;
+	std::vector<int>::iterator it;
 
-	std::cout << std::isdigit(c) << std::endl;
+	vec.push_back(1);
+	vec.push_back(2);
+	it = vec.begin() + 1;
+
+	if (it != vec.end())
+		std::cout << it - vec.begin() << std::endl;
 }
