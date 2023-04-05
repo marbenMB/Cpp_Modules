@@ -216,11 +216,11 @@ std::deque<int>	PmergeMe::mergeDeq (std::deque<int> a, std::deque<int> b)
 
 void	PmergeMe::sortVec (void)
 {
-	long long	now = ft_gettime();
+	clock_t	now = std::clock();
 
 	fillVec();
 	_vecDBsorted = mergeSortVec(_vecDB);
-	_vecTime = (ft_gettime() - now) / 1000.0;
+	_vecTime = (double)((std::clock() - now) / (double)CLOCKS_PER_SEC) * (double)CLOCKS_PER_SEC;
 
 	std::cout << "+> Before : ";
 	printDB(_vecDB);
@@ -231,11 +231,11 @@ void	PmergeMe::sortVec (void)
 
 void	PmergeMe::sortDeq (void)
 {
-	long long	now = ft_gettime();
+	clock_t	now = std::clock();
 
 	fillDeq();
 	_deqDBsorted = mergeSortDeq(_deqDB);
-	_deqTime = (ft_gettime() - now) / 1000.0;
+	_deqTime = (double)((std::clock() - now) / (double)CLOCKS_PER_SEC) * (double)CLOCKS_PER_SEC;
 
 	std::cout << "Time to process " << _deqDB.size() << " element with std::deque : " << std::fixed << std::setprecision(5) << _deqTime << " us" << std::endl;
 }
@@ -257,14 +257,4 @@ void	swapVal (int &a, int &b)
 	tmp = a;
 	a = b;
 	b = tmp;
-}
-
-long long	ft_gettime(void)
-{
-	struct timeval	tp;
-	long long		time;
-
-	gettimeofday(&tp, NULL);
-	time = tp.tv_sec * 1000 + tp.tv_usec / 1000;
-	return (time);
 }
