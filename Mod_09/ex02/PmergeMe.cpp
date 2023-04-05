@@ -210,7 +210,7 @@ void	PmergeMe::sortVec (void)
 
 	_vecDBsorted = mergeSortVec(_vecDB);
 
-	_vecTime = (ft_gettime() - now) / 1000;
+	_vecTime = (ft_gettime() - now) ;/// 1000;
 
 	// std::cout << "+> Sequence : " << std::endl;
 	// printDB(_vecDB);
@@ -224,7 +224,7 @@ void	PmergeMe::sortDeq (void)
 	long long	now = ft_gettime();
 
 	_deqDBsorted = mergeSortDeq(_deqDB);
-	_deqTime = (ft_gettime() - now) / 1000;
+	_deqTime = (ft_gettime() - now) ;/// 1000;
 
 	// std::cout << "+> Sequence : " << std::endl;
 	// printDB(_deqDB);
